@@ -1,9 +1,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import homePage from './components/home-page.vue'
-
+ 
 export default defineComponent({
-  components: { homePage },
+  components: {   },
   setup() {
     
   },
@@ -12,8 +11,7 @@ export default defineComponent({
 
 
 <template>
-  <home-page></home-page>
-    <router-view/>
+     <router-view/>
 </template>
 
  
