@@ -11,6 +11,10 @@
         <in-focus></in-focus>
         
      </div>
+
+     <div>
+        <four-cards></four-cards>
+     </div>
  
 </template>
 
@@ -22,8 +26,9 @@
     import MembersHubCard from './members-hub-card.vue'
 import TheInternationalPara from './the-international-para.vue'
 import InFocus from './in-focus.vue'
+import FourCards from './four-cards.vue'
     export default defineComponent({
-        components:{menuHeader, MembersHubCard, TheInternationalPara, InFocus},
+        components:{menuHeader, MembersHubCard, TheInternationalPara, InFocus, FourCards},
         setup() {
             return{headerImg}
         },
