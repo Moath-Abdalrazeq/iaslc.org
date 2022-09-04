@@ -4,17 +4,28 @@
     <menu-header></menu-header>
     <members-hub-card></members-hub-card>
      </div>
+     <div class=" mt-8 ">
+        <the-international-para></the-international-para>
+     </div>
+     <div>
+        <in-focus></in-focus>
+        
+     </div>
+ 
 </template>
 
+ 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import menuHeader from './menu-header.vue'
-import headerImg from '../assets/img-header.jpg'
-import MembersHubCard from './members-hub-card.vue'
-export default defineComponent({
-    components:{menuHeader, MembersHubCard},
-    setup() {
-        return{headerImg}
-    },
-})
-</script>
+    import { defineComponent } from 'vue'
+    import menuHeader from './menu-header.vue'
+    import headerImg from '../assets/img-header.jpg'
+    import MembersHubCard from './members-hub-card.vue'
+import TheInternationalPara from './the-international-para.vue'
+import InFocus from './in-focus.vue'
+    export default defineComponent({
+        components:{menuHeader, MembersHubCard, TheInternationalPara, InFocus},
+        setup() {
+            return{headerImg}
+        },
+    })
+    </script>
