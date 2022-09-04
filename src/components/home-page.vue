@@ -1,8 +1,8 @@
 <template>
-     <div class=" bg-contain h-96 lg:bg-cover  bg- w-full bg-fixed bg-no-repeat  " :style="{'background-image': `url(${headerImg})`  }" >
+     <div class=" bg-contain h-screen lg:bg-cover    bg-fixed bg-no-repeat  " :style="{'background-image': `url(${headerImg})`  }" >
 
-    <menu-header></menu-header>
-    <members-hub-card></members-hub-card>
+    <menu-header ></menu-header>
+    <div class="translate-y-96"> <members-hub-card></members-hub-card></div>
      </div>
      <div class=" mt-8 ">
         <the-international-para></the-international-para>

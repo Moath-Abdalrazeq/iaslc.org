@@ -1,5 +1,5 @@
  <template>
-     <div class="justify-end flex mr-10 mt-40"> 
+     <div class="justify-end flex mr-10 items-end"> 
 <div class="p-8 w-80 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 flex flex-col  ">
     
     <p class="mb-3 font-bold  text-xl ">MEMBERS HUB </p><hr>
