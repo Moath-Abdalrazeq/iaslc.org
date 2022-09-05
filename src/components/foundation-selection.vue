@@ -1,24 +1,34 @@
+ 
+     
 <script lang="ts">
-    import { defineComponent } from 'vue'
-    import arrowHover from './arrow-hover.vue'
-    
-    export default defineComponent({
-      components: { arrowHover },
-        setup() {},
-    })
-    </script>
-    <template>
-        <div class="relative inline-block hover:block   z-30   ">
-       <button class="peer     hover:underline  ">  <a class="flex" >   Foundation <arrow-hover class="w-4"></arrow-hover>   </a>   </button>  
-       <div class="hidden peer-hover:flex hover:flex flex-col bg-white      text-black">
-      
-        <a href="#" class="px-5 py-3 hover:translate-x-2">Donor Recognition</a>
-        <a href="#" class="px-5 py-3 hover:translate-x-2 ">Research Grant Program</a>
-        <a href="#" class="px-5 py-3 hover:translate-x-2 ">Grant Recipient Spotlights</a>
-        <a href="#" class="px-5 py-3 hover:translate-x-2 ">Research Grant Recipients</a>
+  import { defineComponent, ref } from 'vue'
+  import arrowHover from './arrow-hover.vue'
+import ArrowRightHero from './arrow-right-hero.vue'
+  let showMenu =ref(false)
+  export default defineComponent({
+    components: { arrowHover, ArrowRightHero },
+      setup() {
+        return{showMenu}
+      },
+  })
+  </script>
+  <template>
        
-        
-      </div>
-      </div>  
-    </template>
+     <button @mouseover="showMenu=true" @mouseleave="showMenu=false"    > 
+       <a class="flex hover:border-b-2 border-red-600  " > Foundation <arrow-hover class="w-4"></arrow-hover>   </a>    
+     <ul :class="{'flex flex-col bg-white   absolute  items-start  text-black right-4':showMenu ,'hidden ':!showMenu}">
+     
+    <li class="px-5 py-3 hover:border-b-2 mt-4 border-red-600 text-3xl flex"> Foundation  <arrow-right-hero   ></arrow-right-hero> </li>  <hr class="text-blue-800 w-80 ml-5" >     
+    <li   class="px-5   py-3 hover:border-b-2 border-red-600">Donor Recognition</li>
+    <li   class="px-5   py-3 hover:border-b-2 border-red-600">Research Grant Program</li>
+    <li   class="px-5   py-3 hover:border-b-2 border-red-600">Grant Recipient Spotlights</li>
+    <li   class="px-5   py-3 hover:border-b-2 border-red-600">Research Grant Recipients</li>
+  
+    
+    
+    
+    </ul>
+  </button>  
+  </template>
+   
      

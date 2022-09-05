@@ -11,8 +11,8 @@
     })
     </script>
     <template>
-       
-       <Select class=" p-1  text-lg  bg-white   w-60 ">
+  
+       <Select class=" p-1  text-lg  bg-white   w-40  ">
         <option value=" ">English</option>
         <option value=" ">Arabic</option>
         <option value=" ">Chinese </option>
@@ -20,7 +20,7 @@
     
       </Select>
       
-
+    
 
     </template>
      
