@@ -11,11 +11,15 @@
         <in-focus></in-focus>
         
      </div>
-
      <div>
         <four-cards></four-cards>
      </div>
- 
+ <div >
+    <air-pollution></air-pollution>
+ </div>
+ <div>
+    <iaslc-atlas></iaslc-atlas>
+ </div>
 </template>
 
  
@@ -27,8 +31,10 @@
 import TheInternationalPara from './the-international-para.vue'
 import InFocus from './in-focus.vue'
 import FourCards from './four-cards.vue'
+import AirPollution from './air-pollution.vue'
+import IaslcAtlas from './iaslc-atlas.vue'
     export default defineComponent({
-        components:{menuHeader, MembersHubCard, TheInternationalPara, InFocus, FourCards},
+        components:{ menuHeader, MembersHubCard, TheInternationalPara, InFocus, FourCards, AirPollution, IaslcAtlas },
         setup() {
             return{headerImg}
         },
