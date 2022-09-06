@@ -15,7 +15,7 @@ import ResearchCommitteesProjectsMenu from './research-committees-projects-menu.
     <template>
          
        <button @mouseover="showMenu=true" @mouseleave="showMenu=false"    > 
-         <a class="flex hover:border-b-2 border-red-600  " > Research & Education <arrow-hover class="w-4"></arrow-hover>   </a>    
+         <a class="flex hover:border-b-2 border-red-600  " > Research & Education <arrow-hover class="w-4 lg:hidden"></arrow-hover>   </a>    
        <ul :class="{'flex flex-col bg-white   absolute  items-start  text-black':showMenu ,'hidden ':!showMenu}">
         <li class="px-5 py-3 mt-4 hover:border-b-2 border-red-600 text-3xl flex">Research & Education  <arrow-right-hero></arrow-right-hero>  </li>  <hr class="text-blue-800 w-80 ml-5" > 
         <li   class="px-5 py-3 hover:border-b-2 border-red-600">Publications, Resources & Guidelines</li>

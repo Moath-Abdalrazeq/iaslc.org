@@ -1,26 +1,20 @@
 <script lang="ts">
-    import { defineComponent,ref } from 'vue'
-    import arrowHover from './arrow-hover.vue'
-    
-    export default defineComponent({
-      components: { arrowHover },
-        setup() {
-            let menuHeader = ref(false)
-            return{menuHeader}
-        },
-    })
-    </script>
-    <template>
-  
-       <Select class=" p-1  text-lg  bg-white   w-40  ">
-        <option value=" ">English</option>
-        <option value=" ">Arabic</option>
-        <option value=" ">Chinese </option>
-        <option value=" ">  Russian </option>
-    
-      </Select>
-      
-    
+import { defineComponent, ref } from "vue";
 
-    </template>
-     
+export default defineComponent({
+  components: {},
+  setup() {
+    return {};
+  },
+});
+</script>
+<template>
+  <div class="p-1 text-lg bg-white w-40">
+    <Select>
+      <option value=" English">English</option>
+      <option value="Arabic ">Arabic</option>
+      <option value=" Chinese">Chinese</option>
+      <option value=" Russian">Russian</option>
+    </Select>
+  </div>
+</template>
