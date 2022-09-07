@@ -9,8 +9,8 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div class="p-1 text-lg bg-white w-40">
-    <Select>
+  <div class="p-1 text-lg bg-white mr-8 mt-2">
+    <Select class="w-40">
       <option value=" English">English</option>
       <option value="Arabic ">Arabic</option>
       <option value=" Chinese">Chinese</option>
