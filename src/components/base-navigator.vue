@@ -1,9 +1,7 @@
 <script lang="ts">
 import { defineComponent, onMounted, ref } from "vue";
-import { dataMenu } from "../services/menu-service";
-
+import { data } from "../services/menu-service";
 import BaseMenu from "./base-menu.vue";
-
 export default defineComponent({
   components: {
     BaseMenu,
@@ -12,18 +10,8 @@ export default defineComponent({
     let hideOnScroll = ref(false);
     function OnScroll() {
       if (window.pageYOffset > 200) {
-        //   let elm = document.getElementById("ScrollHeaderId");
-        //   if (elm) {
-        //     elm.className = " hidden   ";
-        //   }
-        // } else {
-        //   let elm = document.getElementById("ScrollHeaderId");
-        //   if (elm) {
-        //     elm.className = "";
-        //   }
-
-        for (let i = 0; i < dataMenu.length; i++) {
-          if (dataMenu[i].hide) {
+        for (let i = 0; i < data.length; i++) {
+          if (data[i].hide) {
             hideOnScroll.value = true;
           }
         }
@@ -37,9 +25,6 @@ export default defineComponent({
   },
 });
 </script>
-
 <template>
-  <!-- logo -->
-
   <base-menu :hideOnScroll="hideOnScroll"> </base-menu>
 </template>

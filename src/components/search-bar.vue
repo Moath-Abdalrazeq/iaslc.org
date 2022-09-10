@@ -1,15 +1,17 @@
 <template>
-  <searchHero @click="searchButton = !searchButton" class="h-8"></searchHero>
-
-  <div v-if="searchButton" class="flex items-center justify-center">
-    <div class="flex mb-4 rounded">
+  <div class="flex lg:justify-center">
+    <div class="flex mb-4">
       <input
         type="text"
-        class="px-4 py-2 w-96 text-black"
-        placeholder="Type to Search..."
+        class="px-4 py-2 w-96 text-black font-bold border-b-2 border-b-red-600"
+        placeholder="Type to Search... "
         v-autofocus
       />
-      <button class="px-4 text-white bg-gray-600 border-l">Search</button>
+      <button
+        class="px-4 text-white bg-red-600 border-l uppercase font-bold lg:block hidden"
+      >
+        Search
+      </button>
     </div>
   </div>
 </template>

@@ -1,189 +1,254 @@
 export let data = [
   {
-    label: " Meetings & Webinars",
+    label: "Meetings & Webinars",
     sub: [
       {
         label: "Meetings & Webinars",
-        desc: "descrip",
+
         code: "/",
       },
       {
         label: " Search Upcoming Meetings & Webinars",
-        desc: "descrip",
+
         code: "/",
       },
       {
         label: "Past Meetings & Webinars",
-        desc: "descrip",
+
         code: "/",
       },
       {
-        label: " Virtual Library",
-        desc: "descrip",
+        label: "Virtual Library",
+
         code: "/",
       },
     ],
   },
 
   {
-    label: " Research & Education",
+    label: "Research & Education",
     sub: [
       {
+        label: "Research & Education",
+      },
+      {
         label: " Publications, Resources & Guidelines",
-        desc: "descrip",
       },
       {
         label: "Journals",
-        desc: "descrip",
+        desc: [
+          {
+            text: "Journal of Thoracic Oncology",
+            code: "#",
+          },
+          {
+            text: "JTO Clinical and Research Reports (JTO CRR)",
+            code: "#",
+          },
+          {
+            text: "IASLC Reviewer Workshop",
+            code: "#",
+          },
+          {
+            text: "Editor-in-Chief Applications Invited for JTO Clinical & Research Reports",
+            code: "#",
+          },
+        ],
       },
       {
-        label: " Research Committees & Projects",
-        desc: "descrip",
+        label: "Research Committees & Projects",
+        desc: [
+          {
+            text: "Advanced Radiation Technology Committee",
+            code: "#",
+          },
+          {
+            text: "Career Development and Fellowship Committee",
+            code: "#",
+          },
+          {
+            text: "Continuing Medical Education Committee",
+            code: "#",
+          },
+          {
+            text: "Education Committee",
+            code: "#",
+          },
+          {
+            text: "Mesothelioma Committee",
+            code: "#",
+          },
+          {
+            text: "Nurses and Allied Health Professionals Committee",
+            code: "#",
+          },
+          {
+            text: "Pathology Committee",
+            code: "#",
+          },
+          {
+            text: "Screening and Early Detection Committee",
+            code: "#",
+          },
+          {
+            text: "Staging and Prognostic Factors Committee",
+            code: "#",
+          },
+          {
+            text: "Tobacco Control and Smoking Cessation Committee",
+            code: "#",
+          },
+        ],
       },
       {
-        label: " Lung Ambition Alliance",
-        desc: "descrip",
+        label: "Lung Ambition Alliance",
       },
       {
-        label: " QOPI Initiative",
-        desc: "descrip",
+        label: "QOPI Initiative",
       },
       {
         label: "Guide to COVID-19 and Lung Cancer",
-        desc: "descrip",
+        desc: [
+          {
+            text: "Other Helpful Resources",
+            code: "#",
+          },
+        ],
       },
       {
-        label: " Staging Project",
-        desc: "descrip",
+        label: "Staging Project",
       },
       {
         label: "IASLC 2022-2023 Academy",
-        desc: "descrip",
       },
     ],
   },
   {
-    label: " IASLC News",
+    label: "IASLC News",
     sub: [
       {
+        label: "IASLC News",
+      },
+      {
         label: "Search ILCN",
-        desc: "descrip",
       },
       {
         label: "WCLC 2022 News",
-        desc: "descrip",
       },
       {
         label: " Press Releases",
-        desc: "descrip",
       },
       {
         label: "ILCN Editorial Group",
-        desc: "descrip",
       },
       {
         label: "Lung Cancer Considered Podcast",
-        desc: "descrip",
       },
       {
         label: "Communications Committee",
-        desc: "descrip",
       },
       {
         label: " ILCN Multidisciplinary Forum Theater",
-        desc: "descrip",
       },
     ],
   },
   {
-    label: " Membership",
+    label: "Membership",
     sub: [
       {
         label: "Membership",
-        desc: "descrip",
       },
       {
         label: "Become a Member",
-        desc: "descrip",
       },
       {
         label: "Renew Your Membership",
-        desc: "descrip",
       },
       {
         label: "Partner Society Membership Offers",
-        desc: "descrip",
       },
       {
         label: "Membership Committee",
-        desc: "descrip",
       },
     ],
   },
   {
-    label: " Patient Advocacy",
+    label: "Patient Advocacy",
     sub: [
       {
+        label: "Patient Advocacy",
+      },
+      {
         label: "Cancer Care Team Award",
-        desc: "descrip",
       },
       {
         label: "STARS",
-        desc: "descrip",
       },
       {
         label: "STARS Participants",
-        desc: "descrip",
       },
       {
         label: "Advocacy Awards",
-        desc: "descrip",
       },
       {
         label: "Advocacy Partner Spotlight",
-        desc: "descrip",
       },
       {
         label: "Patient Advocates Committee",
-        desc: "descrip",
       },
       {
         label: "Patient Advocate Spotlight",
-        desc: "descrip",
       },
     ],
   },
   {
-    label: " Foundation ",
+    label: "Foundation",
     sub: [
       {
-        label: "Foundation ",
-        desc: "descrip",
+        label: "Foundation",
       },
       {
         label: "Donor Recognition",
-        desc: "descrip",
       },
       {
         label: "Research Grant Program",
-        desc: "descrip",
       },
       {
         label: "Grant Recipient Spotlights",
-        desc: "descrip",
       },
       {
         label: "Research Grant Recipients",
-        desc: "descrip",
       },
     ],
   },
-];
-
-export let dataMenu = [
   {
-    label: " About Us",
-
+    label: "About Us",
+    sub: [
+      {
+        label: "Board of Directors ",
+      },
+      {
+        label: "Governing Committees",
+      },
+      {
+        label: "Bylaws",
+      },
+      {
+        label: "Committees",
+      },
+      {
+        label: "Staff",
+      },
+      {
+        label: "History",
+      },
+      {
+        label: "Distinguished Service Awards",
+      },
+      {
+        label: "Lectureship Awards",
+      },
+    ],
     hide: true,
   },
 
