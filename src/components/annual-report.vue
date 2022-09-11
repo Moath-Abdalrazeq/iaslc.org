@@ -52,7 +52,7 @@
       </div>
     </div>
     <!-- popup -->
-    <div>
+    <div class="flex items-center leading-10 justify-around font-serif">
       <youtube-video @on-video-click="videoClicked"></youtube-video>
       <base-popup v-if="showPopup" @on-close-popup="closePopup">
         <template #content>
@@ -63,12 +63,20 @@
           </iframe>
         </template>
       </base-popup>
+      <div class="">
+        <div class="text-2xl mb-5">IASLC YEAR IN REVIEW</div>
+        <div class="mb-5">
+          Dr. Heather Wakelee welcomes you to the IASLC 2021 Annual Report.
+        </div>
+        <button class="bg-red-600 px-1 font-sans">READ THE REPORT</button>
+      </div>
     </div>
   </div>
   <!--  -->
-  <div class="text-center font-serif text-3xl text-black">
-    IASLC'S INTERNATIONAL AND <br />
-    MULTIDISCIPLINARY MEMBERSHIP
+  <div class="text-center font-serif text-3xl text-black my-10">
+    <div>IASLC'S INTERNATIONAL AND</div>
+    <div>MULTIDISCIPLINARY MEMBERSHIP</div>
+
     <hr class="m-auto mt-3 mb-3 w-32 border border-red-800 bg-red-900" />
   </div>
   <p class="text-center font-serif">
