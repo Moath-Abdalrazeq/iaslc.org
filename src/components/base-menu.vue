@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, ref, watch } from "vue";
+import { defineComponent, ref } from "vue";
 import SubMenu from "./sub-menu.vue";
 import { data } from "../services/menu-service";
 import logo from "../assets/logo.jpg";
@@ -35,7 +35,10 @@ export default defineComponent({
   <div class="fixed bg-white w-full">
     <div class="flex">
       <!--logo responsive -->
-      <img :src="logo" class="m-auto lg:flex hidden w-32" />
+      <router-link to="/" class="m-auto lg:flex hidden w-32"
+        ><img :src="logo" />
+      </router-link>
+
       <img :src="logoResponsive" class="w-52 lg:hidden flex p-2" />
       <!--DONATE button responsive -->
       <button
@@ -79,7 +82,15 @@ export default defineComponent({
                   :class="{ 'lg:hidden  ': hideOnScroll }"
                   class="border-b-2 lg:border-b-0"
                 >
-                  <span class="font-normal p-4">{{ page.label }}</span>
+                  <router-link
+                    to="/annualReport"
+                    v-if="
+                      page.code === '/annualReport' || page.label === page.label
+                    "
+                    class="font-normal p-4"
+                  >
+                    {{ page.label }}</router-link
+                  >
                 </div>
                 <!-- sub menu for About us -->
                 <sub-menu

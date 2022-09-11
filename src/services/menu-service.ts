@@ -265,7 +265,8 @@ export let data = [
     hide: true,
   },
   {
-    label: " Annual Report",
+    label: "Annual Report",
     hide: true,
+    code: "/annualReport",
   },
 ];
