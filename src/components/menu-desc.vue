@@ -12,7 +12,7 @@ export default defineComponent({
 </script>
 <template>
   <div class="bg-white h-full w-[30rem]">
-    <div class="flex flex-col p-4 bg-gray-100 w-full mt-4">
+    <div class="flex flex-col p-4 bg-gray-100 w-full -mt-1">
       <div
         v-for="(item, index) in desc"
         :key="index"
