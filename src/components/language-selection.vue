@@ -10,8 +10,8 @@
         },
     })
     </script>
-    <template>
-       
+    <template> 
+    
        <Select class=" p-1  text-lg  bg-white   w-60 ">
         <option value=" ">English</option>
         <option value=" ">Arabic</option>
