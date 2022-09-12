@@ -95,6 +95,7 @@
   <h1 class="mt-4 text-center font-serif text-2xl font-bold text-black">
     MEMBERS BY COUNTRY/REGION
   </h1>
+  <div class="justify-center flex mt-8 mb-8"><CreateMap></CreateMap></div>
 </template>
 <script lang="ts">
 import { defineComponent, ref } from "vue";
@@ -104,8 +105,11 @@ import iaslckrImg from "../assets/iaslckr.jpg";
 import BasePopup from "./base-popup.vue";
 import YoutubeVideo from "./youtube-video.vue";
 import BaseNavigator from "./base-navigator.vue";
+
+import CreateMap from "./create-map.vue";
+
 export default defineComponent({
-  components: { BasePopup, YoutubeVideo, BaseNavigator },
+  components: { BasePopup, YoutubeVideo, BaseNavigator, CreateMap },
   setup() {
     let showPopup = ref(false);
     function videoClicked() {
