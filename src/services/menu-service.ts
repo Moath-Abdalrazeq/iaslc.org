@@ -50,7 +50,7 @@ export let data = [
             code: "#",
           },
           {
-            text: "Editor-in-Chief Applications Invited for JTO Clinical & Research Reports",
+            text: "Editor-in-Chief Applications Invited for JTO Clinical ",
             code: "#",
           },
         ],

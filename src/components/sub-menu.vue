@@ -33,7 +33,7 @@ export default defineComponent({
         <div
           v-for="(page, index) in pages.sub"
           :key="index"
-          class="bg-white px-5 py-3 flex hover:border-b-2 hover:border-b-red-600"
+          class="bg-white px-5 py-3 w-[21.5rem] hover:border-b-2 hover:border-b-red-600"
         >
           <div
             @mouseover="descClick(page.desc)"

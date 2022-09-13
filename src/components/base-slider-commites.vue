@@ -1,9 +1,8 @@
 <template>
-  <!-- large -->
   <div class="bg-slate-100 py-10">
     <div class="flex justify-center text-3xl">COMMITTEES</div>
     <hr class="m-auto mt-3 mb-3 w-32 border border-red-800 bg-red-900" />
-    <div class="flex justify-center text-lg ml-2 lg:ml-0">
+    <div class="flex justify-center text-lg ml-3 lg:ml-0 mr-2 lg:mr-0">
       Serving on an IASLC committee in a volunteer capacity, members contribute
       their specialized skills and talents to help define the work of the
       organization, <br />
@@ -33,7 +32,7 @@
         </div>
       </div>
     </div>
-    <div class="flex justify-end mr-8 items-end">
+    <div class="flex justify-end mr-6 items-end mt-8">
       <button @click="prev" class="bg-white w-10 h-10 mr-1">
         <previous-heroicon class="h-5 ml-2 text-red-500"></previous-heroicon>
       </button>
@@ -99,18 +98,25 @@ export default defineComponent({
       }
     }
     function prev() {
-      if (tempIndex.value > 0) {
+      if (tempIndex.value > 0 || tempSmall.value > 0) {
         currentSlide.value = currentSlide.value - 1;
         tempIndex.value = tempIndex.value - 1;
+        currentSlideSmall.value = currentSlideSmall.value - 1;
+        tempSmall.value = tempSmall.value - 1;
 
         initSlids();
         initSlidsSmall();
       }
     }
     function next() {
-      if (CommitesData.value.length - 1 >= currentSlide.value) {
+      if (
+        CommitesData.value.length - 1 >= currentSlide.value ||
+        CommitesData.value.length - 1 >= currentSlideSmall.value
+      ) {
         currentSlide.value = currentSlide.value + 1;
         tempIndex.value = tempIndex.value + 1;
+        currentSlideSmall.value = currentSlideSmall.value + 1;
+        tempSmall.value = tempSmall.value + 1;
 
         initSlids();
         initSlidsSmall();

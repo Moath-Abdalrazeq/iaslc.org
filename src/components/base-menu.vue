@@ -33,7 +33,7 @@ export default defineComponent({
 </script>
 <template>
   <div class="fixed bg-white w-full z-30">
-    <div class="flex">
+    <div class="flex mr-8">
       <!--logo responsive -->
       <router-link to="/" class="m-auto lg:flex hidden w-32"
         ><img :src="logo" />
@@ -47,7 +47,7 @@ export default defineComponent({
         DONATE
       </button>
 
-      <div class="flex justify-evenly">
+      <div class="flex justify-evenly lg:mt-4">
         <!--menu responsive -->
         <button
           @click="showMenu = !showMenu"
@@ -70,12 +70,12 @@ export default defineComponent({
             </button>
           </div>
           <div class="flex text-lg flex-col-reverse lg:flex-col">
-            <div class="flex flex-col lg:flex-row">
+            <div class="flex flex-col lg:flex-row lg:justify-center">
               <!-- menu part one -->
               <div
                 v-for="(page, index) in pages"
                 :key="index"
-                class="font-serif font-semibold lg:p-2.5"
+                class="lg:ml-0 ml-2"
               >
                 <div
                   v-if="!page.sub && page.hide"
@@ -87,7 +87,7 @@ export default defineComponent({
                     v-if="
                       page.code === '/annualReport' || page.label === page.label
                     "
-                    class="font-normal p-4"
+                    class="font-normal lg:p-4"
                   >
                     {{ page.label }}</router-link
                   >
@@ -120,11 +120,11 @@ export default defineComponent({
               </div>
             </div>
 
-            <div class="flex flex-col lg:flex-row">
+            <div class="flex flex-col lg:flex-row lg:justify-center">
               <div
                 v-for="(page, index) in pages"
                 :key="index"
-                class="font-serif font-semibold lg:p-2.5 border-b-2 lg:border-b-0 ml-2 lg:ml-0"
+                class="font-semibold lg:px-1.5 lg:py-4 ml-2 lg:ml-0"
               >
                 <span
                   v-if="!page.sub && !page.hide"

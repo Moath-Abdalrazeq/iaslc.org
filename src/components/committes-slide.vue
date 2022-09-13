@@ -1,5 +1,5 @@
 <template>
-  <div class="lg:w-96 lg:text-sm">
+  <div class="lg:w-96 lg:text-sm ml-3 lg:ml-0 mr-2 lg:mr-0">
     <button @click="videoClick" class="relative">
       <img :src="slidData.firstImg" class="lg:h-56 object-cover" />
       <h1
@@ -12,10 +12,10 @@
       {{ slidData.title }}
     </div>
 
-    <div class="text-black lg:text-lg text-xs">{{ slidData.desc }}</div>
+    <div class="text-black lg:text-lg text-base">{{ slidData.desc }}</div>
   </div>
   <div
-    class="text-red-500 lg:text-lg text-xs flex justify-end mt-4 mb-2 hover:translate-x-2"
+    class="text-red-500 lg:text-lg text-xs flex justify-end mt-4 mb-2 hover:translate-x-2 lg:mr-0 mr-4"
   >
     Read More
     <span> <NextHeroicon></NextHeroicon> </span>
