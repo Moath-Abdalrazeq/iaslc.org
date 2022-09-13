@@ -109,7 +109,6 @@
   >
     MEMBERS BY COUNTRY/REGION
   </h1>
-  <MapBox></MapBox>
 </template>
 <script lang="ts">
 import { defineComponent, ref } from "vue";
@@ -119,10 +118,9 @@ import iaslckrImg from "../assets/iaslckr.jpg";
 import BasePopup from "./base-popup.vue";
 import YoutubeVideo from "./youtube-video.vue";
 import BaseNavigator from "./base-navigator.vue";
-import MapBox from "./map-box.vue";
 
 export default defineComponent({
-  components: { BasePopup, YoutubeVideo, BaseNavigator, MapBox },
+  components: { BasePopup, YoutubeVideo, BaseNavigator },
   setup() {
     let showPopup = ref(false);
     function videoClicked() {
