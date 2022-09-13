@@ -96,6 +96,8 @@
     MEMBERS BY COUNTRY/REGION
   </h1>
   <div class="justify-center flex mt-8 mb-8"><CreateMap></CreateMap></div>
+
+  <base-slider-commites></base-slider-commites>
 </template>
 <script lang="ts">
 import { defineComponent, ref } from "vue";
@@ -107,9 +109,16 @@ import YoutubeVideo from "./youtube-video.vue";
 import BaseNavigator from "./base-navigator.vue";
 
 import CreateMap from "./create-map.vue";
+import BaseSliderCommites from "./base-slider-commites.vue";
 
 export default defineComponent({
-  components: { BasePopup, YoutubeVideo, BaseNavigator, CreateMap },
+  components: {
+    BasePopup,
+    YoutubeVideo,
+    BaseNavigator,
+    CreateMap,
+    BaseSliderCommites,
+  },
   setup() {
     let showPopup = ref(false);
     function videoClicked() {

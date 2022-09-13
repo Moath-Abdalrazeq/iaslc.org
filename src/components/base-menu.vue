@@ -32,7 +32,7 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div class="fixed bg-white w-full">
+  <div class="fixed bg-white w-full z-30">
     <div class="flex">
       <!--logo responsive -->
       <router-link to="/" class="m-auto lg:flex hidden w-32"
