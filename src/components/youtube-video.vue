@@ -2,7 +2,7 @@
   <div class="py-5">
     <button @click="videoClick">
       <div
-        class="h-[28rem] w-[34rem] bg-cover bg-red-600 p-6"
+        class="h-60 w-80 bg-no-repeat lg:h-[28rem] lg:w-[34rem] bg-cover"
         :style="{ 'background-image': `url(${popupImg})` }"
       >
         <div class="flex h-full w-full">

@@ -1,9 +1,11 @@
 <template>
   <base-navigator></base-navigator>
-  <div
-    class="bg-contain h-screen lg:bg-cover bg-fixed bg-no-repeat"
-    :style="{ 'background-image': `url(${headerImg})` }"
-  ></div>
+  <router-link to="/test">
+    <div
+      class="bg-contain h-screen lg:bg-cover bg-fixed bg-no-repeat"
+      :style="{ 'background-image': `url(${headerImg})` }"
+    ></div
+  ></router-link>
   sdfsdfsdfsdfsdfsdfsdf sdsdsdsdsdsdsdsdsd sdfsdfsdfsdfsdfsdfsdf
   sdsdsdsdsdsdsdsdsd sdfsdfsdfsdfsdfsdfsdf sdsdsdsdsdsdsdsdsd
   sdfsdfsdfsdfsdfsdfsdf sdsdsdsdsdsdsdsdsd sdfsdfsdfsdfsdfsdfsdf
