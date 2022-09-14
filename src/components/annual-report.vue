@@ -105,7 +105,7 @@
     MEMBERS BY COUNTRY/REGION
   </h1>
   <div class="justify-center flex mt-8 mb-8"><CreateMap></CreateMap></div>
-
+  <div class="flex justify-center my-10"><ChartJs></ChartJs></div>
   <base-slider-commites></base-slider-commites>
 </template>
 <script lang="ts">
@@ -119,6 +119,7 @@ import BaseNavigator from "./base-navigator.vue";
 
 import CreateMap from "./create-map.vue";
 import BaseSliderCommites from "./base-slider-commites.vue";
+import ChartJs from "./chart-js.vue";
 
 export default defineComponent({
   components: {
@@ -127,6 +128,7 @@ export default defineComponent({
     BaseNavigator,
     CreateMap,
     BaseSliderCommites,
+    ChartJs,
   },
   setup() {
     let showPopup = ref(false);
