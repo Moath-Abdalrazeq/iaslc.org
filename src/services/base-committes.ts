@@ -57,19 +57,19 @@ export let commites = [
 ];
 
 // let objectIdOne = -1;
-let skinId = -1;
+let commitesId = -1;
 
 export function getcommitesData() {
   return commites;
 }
 
 export function setcommites(param: number) {
-  skinId = param;
+  commitesId = param;
 }
 
 export function getcommites() {
   for (let i = 0; i < commites.length; i++) {
-    if (skinId === commites[i].id) {
+    if (commitesId === commites[i].id) {
       return commites[i];
     }
   }

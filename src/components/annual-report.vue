@@ -1,14 +1,9 @@
 <template>
-  <div class="">
-    <BaseNavigator></BaseNavigator>
-  </div>
-  <div class="">
-    <div
-      class="h-screen bg-center bg-cover w-full bg-fixed bg-no-repeat"
-      :style="{ 'background-image': `url(${wordImg})` }"
-    ></div>
-  </div>
-
+  <BaseNavigator></BaseNavigator>
+  <div
+    class="h-screen bg-center bg-cover w-full bg-fixed bg-no-repeat"
+    :style="{ 'background-image': `url(${wordImg})` }"
+  ></div>
   <div
     class="w-full flex px-3 flex-col bg-blue-800 lg:px-4 font-bold text-white"
   >
@@ -20,9 +15,7 @@
 
       <span>2022</span>
     </div>
-    <div
-      class="lg:flex lg:flex-row flex flex-col-reverse items-center py-5 mt-5"
-    >
+    <div class="flex lg:flex-row flex-col-reverse items-center py-5 mt-5">
       <div class="w-max mr-8 lg:mt-0 mt-8">
         <h1 class="mb-3 text-3xl lg:text-5xl">Welcome Letter</h1>
         <hr class="mb-5 h-[0.1rem] w-32 bg-red-800" />
@@ -45,7 +38,9 @@
             KRISTIN RICHEIMER
           </div>
           <img :src="iaslckrImg" alt="iaslckr" class="h-96 lg:h-80 lg:w-64" />
-          <div class="ml-5 border-l-2 py-3 px-2 text-xl">KRISTIN RICHEIMER</div>
+          <div class="ml-5 border-l-2 py-3 px-2 text-xl lg:hidden">
+            KRISTIN RICHEIMER
+          </div>
         </div>
         <div class="">
           <img :src="doctorImg" alt="iaslckr" class="h-96 lg:h-80 lg:w-64" />

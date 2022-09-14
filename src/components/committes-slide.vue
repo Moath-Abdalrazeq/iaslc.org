@@ -12,7 +12,9 @@
       {{ slidData.title }}
     </div>
 
-    <div class="text-black lg:text-lg text-base">{{ slidData.desc }}</div>
+    <div class="text-black lg:text-lg text-base">
+      {{ slidData.desc }}
+    </div>
   </div>
   <div
     class="text-red-500 lg:text-lg text-xs flex justify-end mt-4 mb-2 hover:translate-x-2 lg:mr-0 mr-4"

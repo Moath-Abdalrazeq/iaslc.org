@@ -2,13 +2,14 @@
   <div class="bg-slate-100 py-10">
     <div class="flex justify-center text-3xl">COMMITTEES</div>
     <hr class="m-auto mt-3 mb-3 w-32 border border-red-800 bg-red-900" />
-    <div class="flex justify-center text-lg ml-3 lg:ml-0 mr-2 lg:mr-0">
+    <div
+      class="flex text-center italic m-auto text-lg ml-3 lg:ml-0 mr-2 lg:mr-0 lg:max-w-8xl"
+    >
       Serving on an IASLC committee in a volunteer capacity, members contribute
       their specialized skills and talents to help define the work of the
-      organization, <br />
-      develop educational content, shape the association's messaging, plan
-      annual meetings, contribute to publications authored by the IASLC, and
-      more.
+      organization, develop educational content, shape the association's
+      messaging, plan annual meetings, contribute to publications authored by
+      the IASLC, and more.
     </div>
     <!-- small    -->
     <div class="flex justify-center lg:hidden w-full">

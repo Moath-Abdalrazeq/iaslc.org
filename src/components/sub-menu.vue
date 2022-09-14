@@ -22,7 +22,10 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div v-if="pages.sub" class="group">
+  <div
+    v-if="pages.sub"
+    class="group border-b-2 lg:border-b-0 lg:px-2.5 font-semibold ml-2 lg:ml-0 mb-4"
+  >
     <div class="flex">
       {{ pages.label }}
       <arrow-hover class="h-6 lg:hidden flex"></arrow-hover>
@@ -33,12 +36,9 @@ export default defineComponent({
         <div
           v-for="(page, index) in pages.sub"
           :key="index"
-          class="bg-white px-5 py-3 w-[21.5rem] hover:border-b-2 hover:border-b-red-600"
+          class="bg-white px-5 py-3 w-[21.5rem] lg:hover:border-b-2 lg:hover:border-b-red-600"
         >
-          <div
-            @mouseover="descClick(page.desc)"
-            class="flex hover:cursor-pointer"
-          >
+          <button @mouseover="descClick(page.desc)" class="flex">
             {{ page.label }}
             <span v-if="page.label === pages.label">
               <arrow-right-hero></arrow-right-hero>
@@ -54,7 +54,7 @@ export default defineComponent({
             >
               <link-icon class="h-6 text-red-600"></link-icon>
             </span>
-          </div>
+          </button>
         </div>
       </div>
       <div v-if="descHover && showDesc">

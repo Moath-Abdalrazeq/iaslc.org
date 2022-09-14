@@ -33,7 +33,7 @@ export default defineComponent({
 </script>
 <template>
   <div class="fixed bg-white w-full z-30">
-    <div class="flex mr-8">
+    <div class="flex justify-around">
       <!--logo responsive -->
       <router-link to="/" class="m-auto lg:flex hidden w-32"
         ><img :src="logo" />
@@ -59,7 +59,7 @@ export default defineComponent({
 
         <div
           :class="{
-            '  h-screen absolute w-[43.2rem]    bg-white  ': showMenu,
+            '  h-screen absolute w-[43.7rem]    bg-white  ': showMenu,
             'hidden lg:flex lg:flex-col ': !showMenu,
           }"
         >
@@ -69,18 +69,16 @@ export default defineComponent({
               <close-hero></close-hero>
             </button>
           </div>
-          <div class="flex text-lg flex-col-reverse lg:flex-col">
-            <div class="flex flex-col lg:flex-row lg:justify-center">
+          <div class="flex text-lg flex-col-reverse lg:flex-col lg:mr-8">
+            <div class="flex flex-col lg:flex-row justify-evenly lg:mb-4">
               <!-- menu part one -->
-              <div
-                v-for="(page, index) in pages"
-                :key="index"
-                class="lg:ml-0 ml-2"
-              >
+              <div v-for="(page, index) in pages" :key="index">
                 <div
                   v-if="!page.sub && page.hide"
-                  :class="{ 'lg:hidden  ': hideOnScroll }"
-                  class="border-b-2 lg:border-b-0"
+                  :class="{
+                    'lg:hidden  ': hideOnScroll,
+                  }"
+                  class="border-b-2 lg:border-b-0 lg:ml-0 ml-2"
                 >
                   <router-link
                     to="/annualReport"
@@ -94,10 +92,11 @@ export default defineComponent({
                 </div>
                 <!-- sub menu for About us -->
                 <sub-menu
-                  v-if="page.hide"
+                  v-if="page.hide && page.label === 'About Us'"
                   :index="index"
                   :pages="page"
                   :class="{ 'lg:hidden  ': hideOnScroll }"
+                  class="font-medium"
                 >
                 </sub-menu>
               </div>
@@ -120,16 +119,11 @@ export default defineComponent({
               </div>
             </div>
 
-            <div class="flex flex-col lg:flex-row lg:justify-center">
-              <div
-                v-for="(page, index) in pages"
-                :key="index"
-                class="font-semibold lg:px-1.5 lg:py-4 ml-2 lg:ml-0"
-              >
+            <div class="flex flex-col lg:flex-row flex-wrap">
+              <div v-for="(page, index) in pages" :key="index">
                 <span
                   v-if="!page.sub && !page.hide"
-                  :class="{ 'lg:hidden  ': hideOnScroll }"
-                  class="font-normal"
+                  :class="{ 'lg:hidden     ': hideOnScroll }"
                 >
                 </span>
                 <!-- sub menu for menu part tow -->
@@ -139,8 +133,8 @@ export default defineComponent({
             </div>
           </div>
           <!-- search bar responsive -->
-          <search-bar v-if="searchBox" class="mt-2 lg:flex"></search-bar>
-          <search-bar class="mt-2 lg:hidden"></search-bar>
+          <search-bar v-if="searchBox" class="lg:flex"></search-bar>
+          <search-bar class="lg:hidden"></search-bar>
         </div>
       </div>
     </div>

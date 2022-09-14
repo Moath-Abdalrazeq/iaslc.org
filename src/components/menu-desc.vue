@@ -11,8 +11,8 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div class="bg-white h-full w-[30rem]">
-    <div class="flex flex-col p-4 bg-gray-100 -mt-1">
+  <div class="bg-white h-full">
+    <div class="flex flex-col p-4 bg-gray-100 w-[22rem] -mt-1">
       <div
         v-for="(item, index) in desc"
         :key="index"
