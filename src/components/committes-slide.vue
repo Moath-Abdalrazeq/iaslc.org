@@ -1,5 +1,5 @@
 <template>
-  <div class="lg:w-96 lg:text-sm ml-3 lg:ml-0 mr-2 lg:mr-0">
+  <div class="lg:max-w-sm lg:text-sm ml-3 lg:ml-0 mr-2 lg:mr-0">
     <button @click="videoClick" class="relative">
       <img :src="slidData.firstImg" class="lg:h-56 object-cover" />
       <h1

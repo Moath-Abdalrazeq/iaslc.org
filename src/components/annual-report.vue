@@ -105,7 +105,9 @@
     MEMBERS BY COUNTRY/REGION
   </h1>
   <div class="justify-center flex mt-8 mb-8"><CreateMap></CreateMap></div>
-  <div class="flex justify-center my-10"><ChartJs></ChartJs></div>
+  <div class="flex justify-center my-10">
+    <ChartJs></ChartJs>
+  </div>
   <base-slider-commites></base-slider-commites>
 </template>
 <script lang="ts">

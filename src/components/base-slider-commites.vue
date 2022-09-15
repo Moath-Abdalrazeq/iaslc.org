@@ -48,7 +48,6 @@
 import { getcommitesData, setcommites } from "../services/base-committes";
 import { defineComponent, onMounted, ref } from "vue";
 import previousHeroicon from "./previous-heroicon.vue";
-import baseSlide from "./base-slide.vue";
 import NextHeroicon from "./next-heroicon.vue";
 import MenuDesc from "./menu-desc.vue";
 import basePopup from "./base-popup.vue";
@@ -63,7 +62,6 @@ type commitesDataType = {
 }[];
 export default defineComponent({
   components: {
-    baseSlide,
     previousHeroicon,
     NextHeroicon,
     MenuDesc,

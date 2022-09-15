@@ -1,6 +1,13 @@
 <template>
   <div>
-    <DoughnutChart />
+    <DoughnutChart
+      :chart-id="chartId"
+      :plugins="plugins"
+      :css-classes="cssClasses"
+      :styles="styles"
+      :width="width"
+      :height="height"
+    />
   </div>
 </template>
 <script lang="ts">
@@ -60,7 +67,7 @@ export default defineComponent({
             "#E46651",
             "#00D8FF",
             "#DD1B16",
-            "#22d3ee",
+            "#1c1917",
             "#be185d",
           ],
           data: [40, 20, 50, 15, 30, 10],
