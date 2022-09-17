@@ -64,32 +64,33 @@ export default defineComponent({
 
         <div
           :class="{
-            '  h-screen absolute right-0   lg:flex  w-full   top-16   bg-white  ':
+            '  h-screen absolute right-0   lg:flex  w-full   top-16     bg-white  ':
               showMenu,
-            'hidden lg:flex lg:flex-col ': !showMenu,
+            'hidden lg:flex lg:flex-col   ': !showMenu,
           }"
         >
+          <hr class="w-full lg:hidden" />
           <div class="flex text-lg flex-col-reverse lg:flex-col">
-            <div class="flex flex-col lg:flex-row justify-end lg:mr-8 lg:mb-2">
+            <div class="flex flex-col lg:flex-row justify-end lg:mr-2 lg:mb-2">
               <!-- menu part one -->
               <div
                 v-for="(page, index) in pages"
                 :key="index"
-                class="lg:mb-3 text-base lg:mt-4 lg:text-gray-500 lg:leading-none"
+                class="lg:mt-4 lg:mb-3 text-base lg:text-gray-500 font-medium"
               >
                 <div
                   v-if="!page.sub && page.hide"
                   :class="{
                     'lg:hidden  ': hideOnScroll,
                   }"
-                  class="lg:hover:text-red-600 lg:bg-inherit bg-gray-100 my-3 lg:my-0 mx-4 lg:mx-0"
+                  class="lg:hover:text-red-600 lg:bg-inherit bg-gray-100 my-2 lg:my-0 mx-4 lg:mx-0 py-2 lg:py-0"
                 >
                   <router-link
                     to="/annualReport"
                     v-if="
                       page.code === '/annualReport' || page.label === page.label
                     "
-                    class="lg:px-4"
+                    class="lg:mx-4 ml-4 lg:ml-0"
                   >
                     {{ page.label }}</router-link
                   >
@@ -101,7 +102,7 @@ export default defineComponent({
                     :index="index"
                     :pages="page"
                     :class="{ 'lg:hidden  ': hideOnScroll }"
-                    class="text-base leading-none hover:cursor-pointer lg:bg-inherit bg-gray-100 border-b-0 mx-4 lg:mx-0"
+                    class="text-base hover:cursor-pointer lg:bg-inherit bg-gray-100 border-b-0 py-2 lg:py-0"
                   >
                   </sub-menu>
                 </div>
@@ -109,14 +110,14 @@ export default defineComponent({
               <div v-if="!hideOnScroll">
                 <!--DONATE And Search hero -->
                 <div class="flex">
-                  <button class="px-8">
+                  <button class="mx-4">
                     <search-hero
-                      class="h-8 w-10 lg:flex hidden"
+                      class="h-9 lg:flex hidden"
                       @click="searchBox = !searchBox"
                     ></search-hero>
                   </button>
                   <button
-                    class="bg-red-700 w-24 px-4 py-2.5 lg:flex hidden font-semibold text-white uppercase leading-none text-base"
+                    class="bg-red-700 w-24 px-4 py-2 lg:flex hidden font-semibold text-white uppercase text-base"
                   >
                     donate
                   </button>
@@ -149,7 +150,7 @@ export default defineComponent({
           <!-- search bar responsive -->
           <search-bar
             v-if="searchBox"
-            class="lg:flex justify-center"
+            class="flex justify-center mt-6"
           ></search-bar>
         </div>
       </div>

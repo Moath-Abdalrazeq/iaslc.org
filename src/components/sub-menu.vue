@@ -24,12 +24,12 @@ export default defineComponent({
 <template>
   <div
     v-if="pages.sub"
-    class="group border-b-2 lg:border-b-0 lg:px-2 lg:mr-6 my-3 lg:my-0"
+    class="group border-b-2 lg:border-b-0 my-2 lg:my-0 mx-4 lg:mx-0"
   >
-    <div class="flex mx-4 lg:mx-0 justify-between">
-      <div>{{ pages.label }}</div>
+    <div class="flex lg:px-2 justify-between ml-4 lg:ml-0">
+      {{ pages.label }}
 
-      <div><arrow-hover class="h-6 lg:hidden"></arrow-hover></div>
+      <arrow-hover class="h-6 lg:hidden"></arrow-hover>
     </div>
 
     <div class="hidden group-hover:flex lg:absolute text-black">

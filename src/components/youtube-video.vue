@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="py-5">
     <button @click="videoClick">
       <div
@@ -26,4 +26,4 @@ export default defineComponent({
     return { youtubeImg, popupImg, videoClick };
   },
 });
-</script>
+</script> -->
