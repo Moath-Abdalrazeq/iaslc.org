@@ -39,23 +39,21 @@ export default defineComponent({
       <div class="px-4 lg:px-0"><img :src="data.image" /></div>
 
       <div
-        class="bg-white -mt-14 lg:mt-0 lg:max-w-lg max-w-xs mx-auto shadow-lg px-5 lg:px-10 py-5 lg:py-0 text-center"
+        class="bg-white -mt-14 lg:max-w-lg max-w-xs mx-auto shadow-lg px-5 lg:px-6 py-5 lg:py-0 text-center h-full"
       >
-        <h5
-          class="lg:text-2xl text-3xl font-medium tracking-tight text-gray-900 my-6"
-        >
+        <h5 class="text-3xl font-medium text-gray-900 my-4">
           {{ data.title }}
         </h5>
 
-        <div class="mb-5 font-normal text-gray-700 text-lg max-w-lg">
+        <div class="my-5 text-gray-700 text-lg font-serif max-w-lg">
           {{ data.desc }}
         </div>
-        <div>
-          <a
+        <div class="my-3">
+          <button
             class="py-2 px-3 text-base font-medium text-white bg-red-700 uppercase"
           >
             View award Winners
-          </a>
+          </button>
         </div>
       </div>
     </div>

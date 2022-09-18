@@ -14,8 +14,9 @@
     "skipLibCheck": true
   },
   "paths": {
-    "@/*": ["./src/*"],
-    "@@/*": ["./*"]
+    "@/*": ["src/*", "src/utils/types/*.d.ts"],
+    "@root/*": ["/*"],
+    "*": ["src/utils/types/*.d.ts"]
   },
   "include": [
     "src/**/*.ts",
