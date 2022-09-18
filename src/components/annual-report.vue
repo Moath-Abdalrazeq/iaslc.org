@@ -110,10 +110,9 @@
   </div>
   <base-slider-commites></base-slider-commites>
 
-  <Iaslc2021World></Iaslc2021World>
-
-  <CardsWclc></CardsWclc>
-  <AwardWinners></AwardWinners>
+  <iaslc-world></iaslc-world>
+  <cards-wclc></cards-wclc>
+  <award-winners></award-winners>
 </template>
 <script lang="ts">
 import { defineComponent, ref } from "vue";
@@ -127,9 +126,9 @@ import BaseNavigator from "./base-navigator.vue";
 import CreateMap from "./create-map.vue";
 import BaseSliderCommites from "./base-slider-commites.vue";
 import ChartJs from "./chart-js.vue";
-import Iaslc2021World from "./iaslc-2021-world.vue";
-import CardsWclc from "./cards-wclc.vue";
-import AwardWinners from "./award-winners.vue";
+import cardsWclc from "./cards-wclc.vue";
+import awardWinners from "./award-winners.vue";
+import iaslcWorld from "./iaslc-world.vue";
 
 export default defineComponent({
   components: {
@@ -139,9 +138,9 @@ export default defineComponent({
     CreateMap,
     BaseSliderCommites,
     ChartJs,
-    Iaslc2021World,
-    CardsWclc,
-    AwardWinners,
+    cardsWclc,
+    awardWinners,
+    iaslcWorld,
   },
   setup() {
     let showPopup = ref(false);

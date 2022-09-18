@@ -39,7 +39,7 @@ export default defineComponent({
       <div class="px-4 lg:px-0"><img :src="data.image" /></div>
 
       <div
-        class="bg-white -mt-14 lg:max-w-lg max-w-xs mx-auto shadow-lg px-5 lg:px-6 py-5 lg:py-0 text-center h-full"
+        class="bg-white -mt-14 lg:max-w-lg max-w-xs mx-auto shadow-lg px-5 lg:px-6 py-5 lg:py-0 text-center h-full hover:translate-x-2"
       >
         <h5 class="text-3xl font-medium text-gray-900 my-4">
           {{ data.title }}

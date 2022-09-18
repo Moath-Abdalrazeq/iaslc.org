@@ -31,7 +31,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <h1 class="text-black flex justify-center text-3xl font-medium pt-5 pb-10">
+  <h1 class="text-black text-center text-3xl font-medium pt-5 pb-10">
     WCLC 2021 QUICK FACTS
   </h1>
 
@@ -39,13 +39,11 @@ export default defineComponent({
     class="text-black lg:flex justify-evenly grid grid-cols-2 gap-4 lg:gap-0 ml-2"
   >
     <div v-for="(data, index) in cardsData" :key="index">
-      <div class="p-6 bg-white rounded-lg shadow-lg lg:h-60 lg:w-72 h-44 w-44">
-        <div
-          class="mb-2 lg:text-6xl text-3xl font-bold text-red-700 flex justify-center lg:mt-8"
-        >
+      <div class="p-6 bg-white shadow-lg lg:h-60 lg:w-72 h-44 w-44 text-center">
+        <div class="mb-2 lg:text-6xl text-3xl font-bold text-red-700 lg:mt-8">
           {{ data.number }}
         </div>
-        <div class="text-black flex justify-center px-2 lg:text-xl text-center">
+        <div class="text-black px-2 lg:text-xl">
           {{ data.title }}
         </div>
       </div>
