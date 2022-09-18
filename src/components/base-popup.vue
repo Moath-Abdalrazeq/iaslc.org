@@ -4,7 +4,9 @@
       <div class="fixed inset-0 bg-black bg-opacity-75"></div>
 
       <span class="h-screen"></span>
-      <div class="inline-block w-full max-w-4xl transform align-middle">
+      <div
+        class="inline-block w-full max-w-sm lg:max-w-4xl transform align-middle"
+      >
         <div class="absolute right-0 flex">
           <button
             @click="closePopup"

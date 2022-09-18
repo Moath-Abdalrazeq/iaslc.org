@@ -25,4 +25,11 @@ export default {
   height: 80vh;
   width: 80vw;
 }
+@media only screen and (max-width: 844px) {
+  #map {
+    height: 37vh;
+    width: 45vh;
+    border-radius: 100px;
+  }
+}
 </style>

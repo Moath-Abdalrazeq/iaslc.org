@@ -4,7 +4,7 @@
   </div>
   <div class="">
     <div
-      class="h-screen bg-center bg-cover w-full bg-fixed bg-no-repeat"
+      class="brightness-50 h-screen bg-center bg-cover w-full bg-fixed bg-no-repeat"
       :style="{ 'background-image': `url(${wordImg})` }"
     ></div>
   </div>
@@ -13,7 +13,7 @@
     class="w-full flex px-3 flex-col bg-blue-800 lg:px-4 font-bold text-white"
   >
     <div
-      class="mx-auto -mt-24 lg:-mt-32 flex lg:h-60 h-44 lg:min-w-[28rem] w-60 flex-col items-center justify-center bg-white text-center font-serif text-2xl lg:text-4xl tracking-wider text-black"
+      class="z-20 mx-auto -mt-24 lg:-mt-32 flex lg:h-60 h-44 lg:min-w-[28rem] w-60 flex-col items-center justify-center bg-white text-center font-serif text-2xl lg:text-4xl tracking-wider text-black"
     >
       <span>ANNUAL REPORT</span>
       <hr class="mt-1 h-[0.1rem] w-24 bg-red-700" />
@@ -110,8 +110,15 @@
     MEMBERS BY COUNTRY/REGION
   </h1>
   <div class="justify-center flex mt-8 mb-8"><CreateMap></CreateMap></div>
+  <div class="flex justify-around">
+    <char-diagrame></char-diagrame>
+    <char-diagrame></char-diagrame>
+  </div>
 
   <base-slider-commites></base-slider-commites>
+  <div class="">
+    <CardsDropdown></CardsDropdown>
+  </div>
 </template>
 <script lang="ts">
 import { defineComponent, ref } from "vue";
@@ -124,6 +131,8 @@ import BaseNavigator from "./base-navigator.vue";
 
 import CreateMap from "./create-map.vue";
 import BaseSliderCommites from "./base-slider-commites.vue";
+import CharDiagrame from "./char-diagrame.vue";
+import CardsDropdown from "./cards-dropdown.vue";
 
 export default defineComponent({
   components: {
@@ -132,6 +141,8 @@ export default defineComponent({
     BaseNavigator,
     CreateMap,
     BaseSliderCommites,
+    CharDiagrame,
+    CardsDropdown,
   },
   setup() {
     let showPopup = ref(false);
