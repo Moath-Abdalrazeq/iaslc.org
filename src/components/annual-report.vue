@@ -58,7 +58,7 @@
     </div>
 
     <!-- popup -->
-    <div class="lg:flex items-center leading-10 justify-around font-serif">
+    <div class="lg:flex items-center leading-10 justify-between font-serif">
       <youtube-video @on-video-click="videoClicked"></youtube-video>
       <base-popup v-if="showPopup" @on-close-popup="closePopup">
         <template #content>
@@ -116,9 +116,9 @@
   </div>
 
   <base-slider-commites></base-slider-commites>
-  <div class="">
-    <CardsDropdown></CardsDropdown>
-  </div>
+
+  <CardsDropdown></CardsDropdown>
+  <MeetingsCard></MeetingsCard>
 </template>
 <script lang="ts">
 import { defineComponent, ref } from "vue";
@@ -133,6 +133,7 @@ import CreateMap from "./create-map.vue";
 import BaseSliderCommites from "./base-slider-commites.vue";
 import CharDiagrame from "./char-diagrame.vue";
 import CardsDropdown from "./cards-dropdown.vue";
+import MeetingsCard from "./meetings-card.vue";
 
 export default defineComponent({
   components: {
@@ -143,6 +144,7 @@ export default defineComponent({
     BaseSliderCommites,
     CharDiagrame,
     CardsDropdown,
+    MeetingsCard,
   },
   setup() {
     let showPopup = ref(false);
