@@ -113,6 +113,13 @@
   <iaslc-world></iaslc-world>
   <cards-wclc></cards-wclc>
   <award-winners></award-winners>
+
+  <div class="lg:mx-16 mx-6 my-10">
+    <div class="lg:text-3xl text-2xl">JTO IMPACT FACTOR ON THE RISE</div>
+    <bar-chart></bar-chart>
+  </div>
+
+  <our-jornals></our-jornals>
 </template>
 <script lang="ts">
 import { defineComponent, ref } from "vue";
@@ -129,7 +136,8 @@ import ChartJs from "./chart-js.vue";
 import cardsWclc from "./cards-wclc.vue";
 import awardWinners from "./award-winners.vue";
 import iaslcWorld from "./iaslc-world.vue";
-
+import barChart from "@/components/bar-chart.vue";
+import ourJornals from "@/components/our-jornals.vue";
 export default defineComponent({
   components: {
     BasePopup,
@@ -141,6 +149,8 @@ export default defineComponent({
     cardsWclc,
     awardWinners,
     iaslcWorld,
+    barChart,
+    ourJornals,
   },
   setup() {
     let showPopup = ref(false);

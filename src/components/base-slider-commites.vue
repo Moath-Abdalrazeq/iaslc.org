@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-slate-100 py-10">
+  <div class="bg-slate-100 py-10 lg:mx-0 mx-4">
     <div class="flex justify-center text-3xl">COMMITTEES</div>
     <hr class="m-auto mt-3 mb-3 w-32 border border-red-800 bg-red-900" />
     <div
