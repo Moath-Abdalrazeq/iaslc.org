@@ -41,7 +41,7 @@ export default defineComponent({
         </router-link>
       </div>
 
-      <img :src="logoResponsive" class="w-52 lg:hidden flex p-2" />
+      <img :src="logoResponsive" class="w-52 lg:hidden p-2" />
       <!--DONATE button responsive -->
       <button
         class="bg-red-700 h-8 w-20 lg:hidden mt-5 ml-4 font-semibold text-white uppercase text-base"
@@ -124,9 +124,7 @@ export default defineComponent({
                 </div>
               </div>
             </div>
-            <search-bar
-              class="lg:hidden justify-center border-b-2"
-            ></search-bar>
+            <search-bar class="lg:hidden justify-center"></search-bar>
 
             <div
               class="flex flex-col lg:flex-row flex-wrap lg:hover:cursor-pointer"

@@ -120,6 +120,8 @@
   </div>
 
   <our-jornals></our-jornals>
+  <financials-table></financials-table>
+  <SetTimeOutPicture></SetTimeOutPicture>
 </template>
 <script lang="ts">
 import { defineComponent, ref } from "vue";
@@ -138,6 +140,8 @@ import awardWinners from "./award-winners.vue";
 import iaslcWorld from "./iaslc-world.vue";
 import barChart from "@/components/bar-chart.vue";
 import ourJornals from "@/components/our-jornals.vue";
+import financialsTable from "@/components/financials-table.vue";
+import SetTimeOutPicture from "./setTimeOut-picture.vue";
 export default defineComponent({
   components: {
     BasePopup,
@@ -151,6 +155,8 @@ export default defineComponent({
     iaslcWorld,
     barChart,
     ourJornals,
+    financialsTable,
+    SetTimeOutPicture,
   },
   setup() {
     let showPopup = ref(false);
