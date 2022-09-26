@@ -34,6 +34,9 @@ import BaseNavigator from "./base-navigator.vue";
 import meetingsCard from "./meetings-card.vue";
 import CreateMap from "./create-map.vue";
 import BaseSliderCommites from "./base-slider-commites.vue";
+import CharDiagrame from "./char-diagrame.vue";
+import MeetingsCard from "./meetings-card.vue";
+
 import ChartJs from "./chart-js.vue";
 import cardsWclc from "./cards-wclc.vue";
 import awardWinners from "./award-winners.vue";
@@ -53,6 +56,9 @@ export default defineComponent({
     BaseNavigator,
     CreateMap,
     BaseSliderCommites,
+    CharDiagrame,
+    CardsDropdown,
+    MeetingsCard,
     ChartJs,
     cardsWclc,
     awardWinners,
@@ -60,7 +66,6 @@ export default defineComponent({
     barChart,
     ourJornals,
     financialsTable,
-    CardsDropdown,
     WelcomeLetter,
     FooterPage,
     SettimeoutPicture,
