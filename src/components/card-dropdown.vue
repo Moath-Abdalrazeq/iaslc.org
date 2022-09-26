@@ -14,10 +14,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import NextHeroicon from "./next-heroicon.vue";
-
 export default defineComponent({
   components: { NextHeroicon },
-
   props: {
     card: { type: Object, required: true },
   },

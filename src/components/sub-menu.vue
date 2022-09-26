@@ -22,27 +22,29 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div v-if="pages.sub" class="group">
-    <div class="flex">
+  <div
+    v-if="pages.sub"
+    class="group border-b-2 lg:border-b-0 my-2 lg:my-0 mx-4 lg:mx-0"
+  >
+    <div class="flex lg:px-2 justify-between ml-4 lg:ml-0">
       {{ pages.label }}
-      <arrow-hover class="h-6 lg:hidden flex"></arrow-hover>
+
+      <arrow-hover class="h-6 lg:hidden"></arrow-hover>
     </div>
 
-    <div class="hidden group-hover:flex lg:absolute">
+    <div class="hidden group-hover:flex lg:absolute text-black">
       <div>
         <div
           v-for="(page, index) in pages.sub"
           :key="index"
-          class="bg-white px-5 py-3 flex hover:border-b-2 hover:border-b-red-600"
+          class="bg-white px-5 py-3 lg:hover:border-b-2 lg:hover:border-b-red-600"
         >
-          <div
-            @mouseover="descClick(page.desc)"
-            class="flex hover:cursor-pointer"
-          >
+          <button @mouseover="descClick(page.desc)" class="flex">
             {{ page.label }}
             <span v-if="page.label === pages.label">
               <arrow-right-hero></arrow-right-hero>
             </span>
+
             <span
               v-if="
                 page.label === 'Virtual Library' ||
@@ -54,7 +56,7 @@ export default defineComponent({
             >
               <link-icon class="h-6 text-red-600"></link-icon>
             </span>
-          </div>
+          </button>
         </div>
       </div>
       <div v-if="descHover && showDesc">

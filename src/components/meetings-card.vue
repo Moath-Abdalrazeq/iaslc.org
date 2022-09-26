@@ -35,11 +35,12 @@ export default defineComponent({
 });
 </script>
 <template>
-  <span class="flex justify-center text-4xl font-bold"
+  <span
+    class="flex justify-center w-52 text-center lg:w-full m-auto text-xl lg:text-4xl font-bold"
     >EDUCATION AND CONFERENCES</span
   >
   <hr class="mt-4 m-auto h-[0.14rem] w-32 bg-red-700 mb-5" />
-  <p class="w-[76rem] m-auto text-lg">
+  <p class="lg:w-[76rem] w-80 m-auto text-lg">
     This year it was imperative for the IASLC to execute impactful and
     interactive virtual conferences, given the continued, serious public health
     concerns and restrictions on travel and in-person gatherings due to
@@ -53,15 +54,19 @@ export default defineComponent({
     READ MORE
   </button>
   <div class="my-10">
-    <div class="flex justify-center text-4xl font-bold">2021 MEETINGS</div>
+    <div class="flex justify-center text-2xl lg:text-4xl font-bold">
+      2021 MEETINGS
+    </div>
     <hr class="mt-4 m-auto h-[0.14rem] w-32 bg-red-700 mb-5" />
   </div>
-  <div class="flex justify-around cursor-pointer">
+  <div
+    class="flex flex-col lg:flex-row px-7 lg:px-0 lg:justify-around cursor-pointer"
+  >
     <div v-for="(info, index) in cards" :key="index" class="flex flex-col">
-      <div class="hover:-translate-x-1 max-w-lg">
+      <div class="hover:-translate-x-1 max-w-xs lg:max-w-lg my-5">
         <div class=""><img :src="info.img" /></div>
         <div class="bg-gray-50">
-          <div class="text-center p-5 flex leading-7 h-80">
+          <div class="text-center p-5 flex leading-7 h-[22rem]">
             {{ info.desc }}
           </div>
           <div class="flex justify-end text-red-600 font-bold px-2">

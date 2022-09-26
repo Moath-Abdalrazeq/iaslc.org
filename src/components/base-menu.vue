@@ -33,103 +33,110 @@ export default defineComponent({
 </script>
 <template>
   <div class="fixed bg-white w-full z-30">
-    <div class="flex">
+    <div class="flex justify-around">
       <!--logo responsive -->
-      <router-link to="/" class="m-auto lg:flex hidden w-32"
-        ><img :src="logo" />
-      </router-link>
+      <div>
+        <router-link to="/" class="m-auto lg:flex hidden w-36"
+          ><img :src="logo" />
+        </router-link>
+      </div>
 
-      <img :src="logoResponsive" class="w-52 lg:hidden flex p-2" />
+      <img :src="logoResponsive" class="w-52 lg:hidden p-2" />
       <!--DONATE button responsive -->
       <button
-        class="bg-red-600 h-8 w-20 mt-5 ml-4 lg:hidden text-white font-bold"
+        class="bg-red-700 h-8 w-20 lg:hidden mt-5 ml-4 font-semibold text-white uppercase text-base"
       >
-        DONATE
+        donate
       </button>
 
-      <div class="flex justify-evenly">
+      <div class="flex justify-evenly lg:mt-7">
         <!--menu responsive -->
         <button
           @click="showMenu = !showMenu"
           type="button"
           class="lg:hidden mx-8"
         >
-          <menu-hero></menu-hero>
+          <div v-if="!showMenu"><menu-hero></menu-hero></div>
+          <button @click="showMenu = true" v-if="showMenu" class="lg:hidden">
+            <close-hero v-if="showMenu"></close-hero>
+          </button>
         </button>
 
         <div
           :class="{
-            '  h-screen absolute w-[43.2rem]    bg-white  ': showMenu,
-            'hidden lg:flex lg:flex-col ': !showMenu,
+            '  h-screen absolute right-0   lg:flex  w-full   top-16     bg-white  ':
+              showMenu,
+            'hidden lg:flex lg:flex-col   ': !showMenu,
           }"
         >
-          <div class="lg:flex block mt-4">
-            <!--close hero for menu responsive -->
-            <button @click="showMenu = false" v-if="showMenu" class="lg:hidden">
-              <close-hero></close-hero>
-            </button>
-          </div>
+          <hr class="w-full lg:hidden" />
           <div class="flex text-lg flex-col-reverse lg:flex-col">
-            <div class="flex flex-col lg:flex-row">
+            <div class="flex flex-col lg:flex-row justify-end lg:mr-2 lg:mb-2">
               <!-- menu part one -->
               <div
                 v-for="(page, index) in pages"
                 :key="index"
-                class="font-serif font-semibold lg:p-2.5"
+                class="lg:mt-4 lg:mb-3 text-base lg:text-gray-500 font-medium"
               >
                 <div
                   v-if="!page.sub && page.hide"
-                  :class="{ 'lg:hidden  ': hideOnScroll }"
-                  class="border-b-2 lg:border-b-0"
+                  :class="{
+                    'lg:hidden  ': hideOnScroll,
+                  }"
+                  class="lg:hover:text-red-600 lg:bg-inherit bg-gray-100 my-2 lg:my-0 mx-4 lg:mx-0 py-2 lg:py-0"
                 >
                   <router-link
                     to="/annualReport"
                     v-if="
                       page.code === '/annualReport' || page.label === page.label
                     "
-                    class="font-normal p-4"
+                    class="lg:mx-4 ml-4 lg:ml-0"
                   >
                     {{ page.label }}</router-link
                   >
                 </div>
                 <!-- sub menu for About us -->
-                <sub-menu
-                  v-if="page.hide"
-                  :index="index"
-                  :pages="page"
-                  :class="{ 'lg:hidden  ': hideOnScroll }"
-                >
-                </sub-menu>
+                <div>
+                  <sub-menu
+                    v-if="page.hide"
+                    :index="index"
+                    :pages="page"
+                    :class="{ 'lg:hidden  ': hideOnScroll }"
+                    class="text-base hover:cursor-pointer lg:bg-inherit bg-gray-100 border-b-0 py-2 lg:py-0"
+                  >
+                  </sub-menu>
+                </div>
               </div>
-
               <div v-if="!hideOnScroll">
                 <!--DONATE And Search hero -->
-                <div class="lg:flex block">
-                  <div class="mx-8 mt-2">
+                <div class="flex">
+                  <button class="mx-4">
                     <search-hero
-                      class="h-6 lg:flex hidden"
+                      class="h-9 lg:flex hidden"
                       @click="searchBox = !searchBox"
                     ></search-hero>
-                  </div>
+                  </button>
                   <button
-                    class="bg-red-600 w-24 p-2 lg:block hidden text-white font-bold"
+                    class="bg-red-700 w-24 px-4 py-2 lg:flex hidden font-semibold text-white uppercase text-base"
                   >
-                    DONATE
+                    donate
                   </button>
                 </div>
               </div>
             </div>
+            <search-bar class="lg:hidden justify-center"></search-bar>
 
-            <div class="flex flex-col lg:flex-row">
+            <div
+              class="flex flex-col lg:flex-row flex-wrap lg:hover:cursor-pointer"
+            >
               <div
                 v-for="(page, index) in pages"
                 :key="index"
-                class="font-serif font-semibold lg:p-2.5 border-b-2 lg:border-b-0 ml-2 lg:ml-0"
+                class="font-semibold uppercase text-base"
               >
                 <span
                   v-if="!page.sub && !page.hide"
-                  :class="{ 'lg:hidden  ': hideOnScroll }"
-                  class="font-normal"
+                  :class="{ 'lg:hidden     ': hideOnScroll }"
                 >
                 </span>
                 <!-- sub menu for menu part tow -->
@@ -139,8 +146,10 @@ export default defineComponent({
             </div>
           </div>
           <!-- search bar responsive -->
-          <search-bar v-if="searchBox" class="mt-2 lg:flex"></search-bar>
-          <search-bar class="mt-2 lg:hidden"></search-bar>
+          <search-bar
+            v-if="searchBox"
+            class="flex justify-center mt-6"
+          ></search-bar>
         </div>
       </div>
     </div>
