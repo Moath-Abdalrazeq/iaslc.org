@@ -255,14 +255,17 @@ export let data = [
   {
     label: " Contact",
     hide: true,
+    code: "/",
   },
   {
     label: " Careers",
     hide: true,
+    code: "/",
   },
   {
     label: " Corporate Relations",
     hide: true,
+    code: "/",
   },
   {
     label: "Annual Report",

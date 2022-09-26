@@ -19,7 +19,9 @@
 
   <our-jornals></our-jornals>
   <financials-table></financials-table>
-  <SetTimeOutPicture></SetTimeOutPicture>
+  <settimeout-picture></settimeout-picture>
+
+  <FooterPage></FooterPage>
 </template>
 <script lang="ts">
 import { defineComponent, ref } from "vue";
@@ -29,7 +31,7 @@ import iaslckrImg from "../assets/iaslckr.jpg";
 import BasePopup from "./base-popup.vue";
 import YoutubeVideo from "./youtube-video.vue";
 import BaseNavigator from "./base-navigator.vue";
-
+import meetingsCard from "./meetings-card.vue";
 import CreateMap from "./create-map.vue";
 import BaseSliderCommites from "./base-slider-commites.vue";
 import ChartJs from "./chart-js.vue";
@@ -39,12 +41,14 @@ import iaslcWorld from "./iaslc-world.vue";
 import barChart from "@/components/bar-chart.vue";
 import ourJornals from "@/components/our-jornals.vue";
 import financialsTable from "@/components/financials-table.vue";
-import SetTimeOutPicture from "./setTimeOut-picture.vue";
 import CardsDropdown from "./cards-dropdown.vue";
 import WelcomeLetter from "./welcome-letter.vue";
+import FooterPage from "./footer-page.vue";
+import SettimeoutPicture from "./settimeout-picture.vue";
 export default defineComponent({
   components: {
     BasePopup,
+    meetingsCard,
     YoutubeVideo,
     BaseNavigator,
     CreateMap,
@@ -56,9 +60,10 @@ export default defineComponent({
     barChart,
     ourJornals,
     financialsTable,
-    SetTimeOutPicture,
     CardsDropdown,
     WelcomeLetter,
+    FooterPage,
+    SettimeoutPicture,
   },
   setup() {
     let showPopup = ref(false);

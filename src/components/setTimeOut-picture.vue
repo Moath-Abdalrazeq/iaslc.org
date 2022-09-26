@@ -1,15 +1,15 @@
 <template>
-  <div id="app">
-    <div class="flex">
+  <div>
+    <div class="flex justify-center">
       <div v-for="(data, index) in tempData" :key="index">
-        <img :src="data.imge" class="px-10 h-10" />
+        <img :src="data.imge" class="h-10 px-8" />
       </div>
     </div>
     <div class="flex justify-end mr-6 items-end mt-8">
-      <button @click="prev" class="bg-red-300 w-10 h-10 mr-1">
+      <button @click="prev" class="bg-white shadow-lg w-10 h-10 mr-1">
         <previous-heroicon class="h-5 ml-2 text-red-500"></previous-heroicon>
       </button>
-      <button @click="next" class="bg-red-300 w-10 h-10">
+      <button @click="next" class="bg-white shadow-lg w-10 h-10">
         <next-heroicon class="h-5 ml-2 text-red-500"></next-heroicon>
       </button>
     </div>
@@ -30,53 +30,60 @@ import imgNine from "@/assets/settimeout/lillyLogo2.png";
 import imgTen from "@/assets/settimeout/Merck_Logo.png";
 import imgEleven from "@/assets/settimeout/Novartis.png";
 import imgTwelve from "@/assets/settimeout/Takeda.png";
-let images = ref([
-  {
-    imge: imgOne,
-  },
-  {
-    imge: imgTow,
-  },
-  {
-    imge: imgThree,
-  },
-  {
-    imge: imgFour,
-  },
-  {
-    imge: imgFive,
-  },
-  {
-    imge: imgSex,
-  },
-  {
-    imge: imgSeven,
-  },
-  {
-    imge: imgNine,
-  },
-  {
-    imge: imgTen,
-  },
-  {
-    imge: imgEleven,
-  },
-  {
-    imge: imgTwelve,
-  },
-]);
+
 export default defineComponent({
   components: { NextHeroicon, previousHeroicon },
   setup() {
+    let images = ref([
+      {
+        imge: imgOne,
+      },
+      {
+        imge: imgTow,
+      },
+      {
+        imge: imgThree,
+      },
+      {
+        imge: imgFour,
+      },
+      {
+        imge: imgFive,
+      },
+      {
+        imge: imgSex,
+      },
+      {
+        imge: imgSeven,
+      },
+      {
+        imge: imgNine,
+      },
+      {
+        imge: imgTen,
+      },
+      {
+        imge: imgEleven,
+      },
+      {
+        imge: imgTwelve,
+      },
+    ]);
     let currentSlide = ref(6);
     let tempIndex = ref(0);
     let tempData = ref([]);
     let imgeData = ref(images);
-    let show = ref(false);
-    function setShow() {
-      setTimeout(() => {
-        this.show = true;
-      }, 2000);
+
+    setInterval(timeOut, 1000);
+    function timeOut() {
+      if (imgeData.value.length - 1 >= currentSlide.value) {
+        currentSlide.value = currentSlide.value + 1;
+        tempIndex.value = tempIndex.value + 1;
+
+        initSlids();
+      } else {
+        console.log(tempData.value.splice(0, 2));
+      }
     }
     function initSlids() {
       tempData.value = [];
@@ -108,7 +115,7 @@ export default defineComponent({
     }
     onMounted(init);
 
-    return { setShow, show, images, next, prev, tempData };
+    return { images, next, prev, tempData };
   },
 });
 </script>
