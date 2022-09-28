@@ -29,66 +29,48 @@ export default defineComponent({
         button: "Register Now",
       },
     ]);
-    let imgeToView = ref(headerImg);
-    let titleToView = ref(imgeData.value[0].title);
-    let descToView = ref(imgeData.value[0].desc);
-    let buttonToView = ref(imgeData.value[0].button);
-    let i = ref(1);
+    let timeOutIndex = ref(1);
     function timeOut() {
-      imgeToView.value = imgeData.value[i.value].imge;
-      titleToView.value = imgeData.value[i.value].title;
-      descToView.value = imgeData.value[i.value].desc;
-      buttonToView.value = imgeData.value[i.value].button;
-
-      if (i.value < imgeData.value.length - 1) {
-        i.value++;
+      if (timeOutIndex.value < imgeData.value.length - 1) {
+        timeOutIndex.value++;
       } else {
-        i.value = 0;
+        timeOutIndex.value = 0;
       }
     }
     function titleClicked(index: number) {
-      i.value = index;
-      imgeToView.value = imgeData.value[i.value].imge;
-      titleToView.value = imgeData.value[i.value].title;
-      descToView.value = imgeData.value[i.value].desc;
-      buttonToView.value = imgeData.value[i.value].button;
+      timeOutIndex.value = index;
     }
     function init() {
       setInterval(timeOut, 4000);
     }
     onMounted(init);
     return {
-      titleToView,
-      imgeToView,
-      descToView,
       imgeData,
       titleClicked,
-      buttonToView,
-      i,
+      timeOutIndex,
     };
   },
 });
 </script>
-
 <template>
-  <div>
+  <div v-for="(item, index) in imgeData" :key="index">
     <div
+      v-if="index === timeOutIndex"
       class="bg-contain h-screen lg:bg-cover bg-fixed bg-no-repeat"
-      :style="{ 'background-image': `url(${imgeToView})` }"
+      :style="{ 'background-image': `url(${item.imge})` }"
     >
-      {{ imgeToView }}
       <div class="ml-10 flex h-full max-w-3xl">
         <div class="w-full mt-auto text-white font-bold">
-          <div class="text-5xl">{{ titleToView }}</div>
-          <div class="text-xl my-8">{{ descToView }}</div>
+          <div class="text-5xl">{{ item.title }}</div>
+          <div class="text-xl my-8">{{ item.desc }}</div>
           <div class="text-xl mb-5">
-            <button class="bg-red-700 p-2">{{ buttonToView }}</button>
+            <button class="bg-red-700 p-2">{{ item.button }}</button>
           </div>
           <div class="flex mb-8">
             <div v-for="(data, index) in imgeData" :key="index">
               <button @click="titleClicked(index)" class="flex">
                 <div
-                  :class="{ 'text-red-600': i === index }"
+                  :class="{ 'text-red-600': timeOutIndex === index }"
                   class="text-4xl px-3"
                 >
                   0{{ index + 1 }}
