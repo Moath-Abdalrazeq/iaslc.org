@@ -160,7 +160,7 @@ export default defineComponent({
   </div>
 </template>
 <style scoped>
-.active {
+.router-link-active {
   @apply text-red-500;
 }
 </style>

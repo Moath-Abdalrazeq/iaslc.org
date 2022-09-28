@@ -2,7 +2,7 @@
   <div>
     <div class="flex justify-center">
       <div v-for="(data, index) in tempData" :key="index">
-        <img :src="data.imge" class="h-10 px-8" />
+        <img :src="data" class="h-10 px-8" />
       </div>
     </div>
     <div class="flex justify-end mr-6 items-end mt-8">
@@ -35,87 +35,67 @@ export default defineComponent({
   components: { NextHeroicon, previousHeroicon },
   setup() {
     let images = ref([
-      {
-        imge: imgOne,
-      },
-      {
-        imge: imgTow,
-      },
-      {
-        imge: imgThree,
-      },
-      {
-        imge: imgFour,
-      },
-      {
-        imge: imgFive,
-      },
-      {
-        imge: imgSex,
-      },
-      {
-        imge: imgSeven,
-      },
-      {
-        imge: imgNine,
-      },
-      {
-        imge: imgTen,
-      },
-      {
-        imge: imgEleven,
-      },
-      {
-        imge: imgTwelve,
-      },
+      imgOne,
+      imgTow,
+      imgThree,
+      imgFour,
+      imgFive,
+      imgSex,
+      imgSeven,
+      imgNine,
+      imgTen,
+      imgEleven,
+      imgTwelve,
     ]);
     let currentSlide = ref(6);
     let tempIndex = ref(0);
     let tempData = ref([]);
-    let imgeData = ref(images);
-
-    setInterval(timeOut, 1000);
-    function timeOut() {
-      if (imgeData.value.length - 1 >= currentSlide.value) {
-        currentSlide.value = currentSlide.value + 1;
-        tempIndex.value = tempIndex.value + 1;
-
-        initSlids();
-      } else {
-        console.log(tempData.value.splice(0, 2));
-      }
-    }
     function initSlids() {
       tempData.value = [];
-      for (let i = tempIndex.value; i < imgeData.value.length; i++) {
-        if (i < currentSlide.value) {
-          tempData.value.push(imgeData.value[i]);
-        }
+      for (let i = tempIndex.value; i < currentSlide.value; i++) {
+        tempData.value.push(images.value[i]);
       }
     }
-
     function prev() {
       if (tempIndex.value > 0) {
-        currentSlide.value = currentSlide.value - 1;
-        tempIndex.value = tempIndex.value - 1;
-
+        currentSlide.value -= 1;
+        tempIndex.value -= 1;
         initSlids();
       }
     }
     function next() {
-      if (imgeData.value.length - 1 >= currentSlide.value) {
-        currentSlide.value = currentSlide.value + 1;
-        tempIndex.value = tempIndex.value + 1;
-
+      if (images.value.length - 1 >= currentSlide.value) {
+        currentSlide.value += 1;
+        tempIndex.value += 1;
         initSlids();
+      }
+    }
+    let timeIndex = 0;
+    let tempSlide = images.value[timeIndex];
+    function timeOut() {
+      if (images.value.length - 1 >= currentSlide.value) {
+        next();
+      } else {
+        if (images.value.length > timeIndex) {
+          tempSlide = images.value[timeIndex];
+          timeIndex++;
+        } else {
+          timeIndex = 0;
+          tempSlide = images.value[timeIndex];
+          timeIndex++;
+        }
+
+        tempData.value.splice(0, 1);
+        tempData.value.push(tempSlide);
       }
     }
     function init() {
       initSlids();
+      setInterval(timeOut, 1500);
     }
     onMounted(init);
 
-    return { images, next, prev, tempData };
+    return { tempData, prev, next };
   },
 });
 </script>

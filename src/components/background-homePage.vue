@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, onMounted, ref } from "vue";
 import headerImg from "../assets/img-header.jpg";
 import BaseNavigator from "./base-navigator.vue";
 import iaslcAcademy from "@/assets/iaslc-academy.jpg";
@@ -53,7 +53,10 @@ export default defineComponent({
       descToView.value = imgeData.value[i.value].desc;
       buttonToView.value = imgeData.value[i.value].button;
     }
-    setInterval(timeOut, 4000);
+    function init() {
+      setInterval(timeOut, 4000);
+    }
+    onMounted(init);
     return {
       titleToView,
       imgeToView,
@@ -73,6 +76,7 @@ export default defineComponent({
       class="bg-contain h-screen lg:bg-cover bg-fixed bg-no-repeat"
       :style="{ 'background-image': `url(${imgeToView})` }"
     >
+      {{ imgeToView }}
       <div class="ml-10 flex h-full max-w-3xl">
         <div class="w-full mt-auto text-white font-bold">
           <div class="text-5xl">{{ titleToView }}</div>
