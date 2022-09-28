@@ -10,7 +10,7 @@
         <div class="absolute right-0 flex">
           <button
             @click="closePopup"
-            class="px-3 mt-1 mr-1 rounded-full bg-gray-300 text-gray-800 opacity-50"
+            class="px-3 mt-1 mr-3 rounded-full bg-gray-300 text-black"
           >
             ×
           </button>

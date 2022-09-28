@@ -1,5 +1,5 @@
 <template>
-  <div class="p-5 bg-red-500 lg:w-80 w-52 my-5">
+  <div class="p-5 bg-red-500 lg:w-96 w-52 my-5">
     <button @click="videoClick">
       <div
         class="h-64 w-[22rem] bg-no-repeat lg:h-[28rem] lg:w-[34rem] bg-cover"

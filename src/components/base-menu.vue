@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { computed, defineComponent, ref } from "vue";
 import SubMenu from "./sub-menu.vue";
 import { data } from "../services/menu-service";
 import logo from "../assets/logo.jpg";
@@ -10,6 +10,7 @@ import MenuHero from "./menu-hero.vue";
 import CloseHero from "./close-hero.vue";
 import SearchHero from "./search-hero.vue";
 import ArrowHover from "./arrow-hover.vue";
+import { useRouter } from "vue-router";
 export default defineComponent({
   components: {
     SubMenu,
@@ -26,8 +27,11 @@ export default defineComponent({
     let searchBox = ref(false);
     let showMenu = ref(false);
     let pages = ref(data);
-
-    return { pages, logo, logoResponsive, showMenu, searchBox };
+    const currentRoute = computed(() => {
+      const router = useRouter();
+      return router.currentRoute.value.name;
+    });
+    return { pages, logo, logoResponsive, showMenu, searchBox, currentRoute };
   },
 });
 </script>
@@ -86,15 +90,15 @@ export default defineComponent({
                   class="lg:hover:text-red-600 lg:bg-inherit bg-gray-100 my-2 lg:my-0 mx-4 lg:mx-0 py-2 lg:py-0"
                 >
                   <router-link
-                    to="/annualReport"
-                    v-if="
-                      page.code === '/annualReport' || page.label === page.label
-                    "
+                    :to="page.code"
+                    v-if="page.code === '/annualReport' || page.label"
                     class="lg:mx-4 ml-4 lg:ml-0"
+                    exact
                   >
-                    {{ page.label }}</router-link
-                  >
+                    {{ page.label }}
+                  </router-link>
                 </div>
+
                 <!-- sub menu for About us -->
                 <div>
                   <sub-menu
@@ -155,3 +159,8 @@ export default defineComponent({
     </div>
   </div>
 </template>
+<style scoped>
+.router-link-active {
+  @apply text-red-500;
+}
+</style>

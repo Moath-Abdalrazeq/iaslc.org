@@ -1,21 +1,20 @@
 <template>
   <base-navigator></base-navigator>
-  <div
-    class="bg-contain h-screen lg:bg-cover bg-fixed bg-no-repeat"
-    :style="{ 'background-image': `url(${headerImg})` }"
-  ></div>
+  <div>
+    <background-home-page></background-home-page>
+  </div>
 </template>
-
 <script lang="ts">
-import { defineComponent } from "vue";
-import headerImg from "../assets/img-header.jpg";
+import { defineComponent, ref } from "vue";
 import BaseNavigator from "./base-navigator.vue";
+import BackgroundHomePage from "./background-homePage.vue";
 export default defineComponent({
   components: {
     BaseNavigator,
+    BackgroundHomePage,
   },
   setup() {
-    return { headerImg };
+    return {};
   },
 });
 </script>

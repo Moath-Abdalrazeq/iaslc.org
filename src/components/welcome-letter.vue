@@ -53,16 +53,18 @@
 
     <!-- popup -->
     <div class="lg:flex items-center leading-10 justify-around font-serif">
-      <youtube-video @on-video-click="videoClicked"></youtube-video>
-      <base-popup v-if="showPopup" @on-close-popup="closePopup">
-        <template #content>
-          <iframe
-            class="h-[28rem] w-full rounded-lg"
-            src="https://www.youtube.com/embed/Ju82sFVclJA"
-          >
-          </iframe>
-        </template>
-      </base-popup>
+      <div>
+        <youtube-video @on-video-click="videoClicked"></youtube-video>
+        <base-popup v-if="showPopup" @on-close-popup="closePopup">
+          <template #content>
+            <iframe
+              class="lg:h-[28rem] h-[40rem] lg:w-full w-[23rem] m-auto rounded-lg"
+              src="https://www.youtube.com/embed/Ju82sFVclJA"
+            >
+            </iframe>
+          </template>
+        </base-popup>
+      </div>
       <div class="leading-6 font-sans">
         <div class="lg:text-2xl text-xl mb-5">IASLC YEAR IN REVIEW</div>
         <div class="lg:mb-5 lg:max-w-xl max-w-xs">
@@ -80,11 +82,11 @@ import { defineComponent, ref } from "vue";
 import wordImg from "../assets/word.jpg";
 import doctorImg from "../assets/doctor.jpg";
 import iaslckrImg from "../assets/iaslckr.jpg";
-import BasePopup from "./base-popup.vue";
-import YoutubeVideo from "./youtube-video.vue";
+import basePopup from "@/components/base-popup.vue";
+import youtubeVideo from "@/components/youtube-video.vue";
 
 export default defineComponent({
-  components: { YoutubeVideo },
+  components: { youtubeVideo, basePopup },
   setup() {
     let showPopup = ref(false);
     function videoClicked() {
@@ -100,8 +102,6 @@ export default defineComponent({
       videoClicked,
       showPopup,
       closePopup,
-      BasePopup,
-      YoutubeVideo,
     };
   },
 });

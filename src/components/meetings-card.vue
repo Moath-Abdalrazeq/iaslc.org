@@ -59,17 +59,15 @@ export default defineComponent({
     </div>
     <hr class="mt-4 m-auto h-[0.14rem] w-32 bg-red-700 mb-5" />
   </div>
-  <div
-    class="flex flex-col lg:flex-row px-7 lg:px-0 lg:justify-around cursor-pointer"
-  >
+  <div class="flex flex-col lg:flex-row px-7 lg:px-10 cursor-pointer">
     <div v-for="(info, index) in cards" :key="index" class="flex flex-col">
-      <div class="hover:-translate-x-1 max-w-xs lg:max-w-lg my-5">
+      <div class="hover:-translate-x-1 max-w-xs lg:max-w-lg my-5 p-4">
         <div class=""><img :src="info.img" /></div>
-        <div class="bg-gray-50">
-          <div class="text-center p-5 flex leading-7 h-[22rem]">
+        <div class="bg-white shadow-2xl">
+          <div class="text-left p-5 flex leading-7 h-[22rem]">
             {{ info.desc }}
           </div>
-          <div class="flex justify-end text-red-600 font-bold px-2">
+          <div class="flex justify-end text-red-600 font-bold px-2 py-3">
             Read More
             <span class="ml-1 mt-0.5"><NextHeroicon></NextHeroicon></span>
           </div>
