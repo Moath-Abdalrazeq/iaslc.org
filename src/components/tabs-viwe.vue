@@ -3,7 +3,7 @@
   <base-tabs class="w-11/12 lg:w-10/12 mx-auto" @on-tab-click="tabClick"  :tabs-names="tabsNames" >
       <template   #tabPanel> 
         <div v-for="(data,index) in tabList" :key="index">
-             <span v-if="tabclicked===index">{{data.content}}</span> 
+             <div v-if="tabclicked===index" class="flex-grow bg-white rounded-lg shadow-xl p-4" >{{data.content}}</div> 
         </div>
          </template>
     </base-tabs>
@@ -18,19 +18,19 @@
         let tabList=ref(
             [{
         tab:"Tab 1", 
-        content:"content1"
+        content:"Content 1"
        } ,
        {
         tab:"Tab 2", 
-        content:"content2"
+        content:"Content 2"
        } ,
        {
         tab:"Tab 3", 
-        content:"content3"
+        content:"Content 3"
        } ,
        {
         tab:"Tab 4", 
-        content:"content4"
+        content:"Content 4"
        } ,
     ]
         )

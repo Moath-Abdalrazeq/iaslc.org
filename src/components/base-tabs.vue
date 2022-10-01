@@ -5,8 +5,8 @@
         v-for="(tab, index) in tabsNames"
         :key="index"
         class="w-full px-4 py-1.5 rounded-lg " >
-         <button  @click="tabClicked(index) " :class="{'text-blue-600  bg-white rounded-lg  shadow-xl p-2':!activeTab , 'text-white':activeTab}">
-         {{tab }}
+         <button  @click="tabClicked(index) "  >
+        <div   :class="{ 'text-blue-800  bg-white rounded-lg  shadow-xl  w-40': timeOutIndex === index , 'text-white':timeOutIndex !== index }"> {{tab }} </div> 
         </button> 
       </li>
     </ul>
@@ -28,14 +28,17 @@ export default defineComponent ({
   },
   emits:['onTabClick'],
   setup(props,{emit}){
-    let active=ref(1)
+    let timeOutIndex = ref(0);
     let activeTab=ref(false)
      function tabClicked(index:number) {
     emit('onTabClick',index) 
+      timeOutIndex.value = index 
+
+     
      }
 return{
   tabClicked,
-  activeTab,active
+  activeTab, timeOutIndex
 }
   }
 });

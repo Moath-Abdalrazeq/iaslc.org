@@ -20,8 +20,9 @@
   <our-jornals></our-jornals>
   <financials-table></financials-table>
   <settimeout-picture></settimeout-picture>
-   <TabsViwe></TabsViwe>
- 
+   <TabsViwe></TabsViwe> 
+   <FileDropPage></FileDropPage>
+  <DownloadFiles></DownloadFiles>
   <FooterPage></FooterPage>
 </template>
 <script lang="ts">
@@ -49,6 +50,8 @@ import WelcomeLetter from "./welcome-letter.vue";
 import FooterPage from "./footer-page.vue";
 import SettimeoutPicture from "./settimeout-picture.vue";
 import TabsViwe from "./tabs-viwe.vue";
+ import DownloadFiles from "./download-files.vue";
+import FileDropPage from "./File-drop-page.vue";
   
  
 export default defineComponent({
@@ -72,7 +75,9 @@ export default defineComponent({
     WelcomeLetter,
     FooterPage,
     SettimeoutPicture,
-    TabsViwe
+    TabsViwe,
+     DownloadFiles,
+    FileDropPage
 },
   setup() {
     let showPopup = ref(false);
