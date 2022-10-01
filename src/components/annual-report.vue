@@ -20,7 +20,9 @@
   <our-jornals></our-jornals>
   <financials-table></financials-table>
   <settimeout-picture></settimeout-picture>
-
+   <TabsViwe></TabsViwe> 
+   <FileDropPage></FileDropPage>
+  <DownloadFiles></DownloadFiles>
   <FooterPage></FooterPage>
 </template>
 <script lang="ts">
@@ -36,8 +38,7 @@ import CreateMap from "./create-map.vue";
 import BaseSliderCommites from "./base-slider-commites.vue";
 import CharDiagrame from "./char-diagrame.vue";
 import MeetingsCard from "./meetings-card.vue";
-
-import ChartJs from "./chart-js.vue";
+ import ChartJs from "./chart-js.vue";
 import cardsWclc from "./cards-wclc.vue";
 import awardWinners from "./award-winners.vue";
 import iaslcWorld from "./iaslc-world.vue";
@@ -48,6 +49,11 @@ import CardsDropdown from "./cards-dropdown.vue";
 import WelcomeLetter from "./welcome-letter.vue";
 import FooterPage from "./footer-page.vue";
 import SettimeoutPicture from "./settimeout-picture.vue";
+import TabsViwe from "./tabs-viwe.vue";
+ import DownloadFiles from "./download-files.vue";
+import FileDropPage from "./File-drop-page.vue";
+  
+ 
 export default defineComponent({
   components: {
     BasePopup,
@@ -69,7 +75,10 @@ export default defineComponent({
     WelcomeLetter,
     FooterPage,
     SettimeoutPicture,
-  },
+    TabsViwe,
+     DownloadFiles,
+    FileDropPage
+},
   setup() {
     let showPopup = ref(false);
     function videoClicked() {
@@ -85,6 +94,8 @@ export default defineComponent({
       videoClicked,
       showPopup,
       closePopup,
+      tabList: ["Tab 1", "Tab 2", "Tab 3", "Tab 4"],
+
     };
   },
 });
