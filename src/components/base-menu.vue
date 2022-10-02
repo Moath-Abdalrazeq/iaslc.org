@@ -40,7 +40,7 @@ export default defineComponent({
     <div class="flex justify-around">
       <!--logo responsive -->
       <div>
-        <router-link to="/" class="m-auto lg:flex hidden w-36"
+        <router-link target="_blank"  to="/" class="m-auto lg:flex hidden w-36"
           ><img :src="logo" />
         </router-link>
       </div>
