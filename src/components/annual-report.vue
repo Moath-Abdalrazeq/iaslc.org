@@ -23,8 +23,9 @@
    <TabsViwe></TabsViwe> 
    <FileDropPage></FileDropPage>
   <DownloadFiles></DownloadFiles>
+  <AcceptCookies></AcceptCookies>
   <FooterPage></FooterPage>
-</template>
+ </template>
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import wordImg from "../assets/word.jpg";
@@ -52,7 +53,8 @@ import SettimeoutPicture from "./settimeout-picture.vue";
 import TabsViwe from "./tabs-viwe.vue";
  import DownloadFiles from "./download-files.vue";
 import FileDropPage from "./File-drop-page.vue";
-  
+import AcceptCookies from "./accept-cookies.vue";
+   
  
 export default defineComponent({
   components: {
@@ -76,8 +78,9 @@ export default defineComponent({
     FooterPage,
     SettimeoutPicture,
     TabsViwe,
-     DownloadFiles,
-    FileDropPage
+    DownloadFiles,
+    FileDropPage,
+    AcceptCookies
 },
   setup() {
     let showPopup = ref(false);
