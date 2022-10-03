@@ -40,7 +40,14 @@ export default defineComponent({
           class="bg-white px-5 py-3 lg:hover:border-b-2 lg:hover:border-b-red-600"
         >
           <button @mouseover="descClick(page.desc)" class="flex">
-            {{ page.label }}
+            <router-link
+                    :to="page.code"
+                    v-if="page.code  "
+                    class="lg:mx-4 ml-4 lg:ml-0"
+                     
+                  >
+                    {{ page.label }}
+                  </router-link>
             <span v-if="page.label === pages.label">
               <arrow-right-hero></arrow-right-hero>
             </span>
