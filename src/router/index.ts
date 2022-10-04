@@ -4,7 +4,7 @@ import annualReport from "../components/annual-report.vue";
 import personalForm from '@/components/personal-form.vue'
 import familyForm from '@/components/family-form.vue'
 import worksForm from '@/components/works-form.vue'
-
+import viewForm from '@/components/view-form.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
@@ -30,6 +30,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/worksForm",
     name: "worksForm",
     component: worksForm,
+  },
+  {
+    path: "/viewForm",
+    name: "viewForm",
+    component: viewForm,
   },
 ];
 
