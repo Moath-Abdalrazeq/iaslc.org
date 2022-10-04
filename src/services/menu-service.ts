@@ -37,7 +37,7 @@ export let data = [
         desc: [
           {
             text: "Add",
-            Add: "/personalForm",
+            code: "/personalForm",
           },
           {
             text: "Edit",
@@ -45,7 +45,7 @@ export let data = [
           },
           {
             text: "view",
-            code: "#",
+            code: "/viewForm",
           },
         ],
       },
@@ -55,7 +55,7 @@ export let data = [
         desc: [
           {
             text: "Add",
-            Add: "/familyForm",
+            code: "/familyForm",
           },
           {
             text: "Edit",
@@ -70,11 +70,10 @@ export let data = [
       {
         label: "Works Form",
         code: "/worksForm",
-
         desc: [
           {
             text: "Add",
-            Add: "/worksForm",
+            code: "/worksForm",
           },
           {
             text: "Edit",

@@ -28,7 +28,6 @@ export default defineComponent({
   >
     <div class="flex lg:px-2 justify-between ml-4 lg:ml-0">
       {{ pages.label }}
-
       <arrow-hover class="h-6 lg:hidden"></arrow-hover>
     </div>
 
@@ -42,12 +41,10 @@ export default defineComponent({
           <button @mouseover="descClick(page.desc)" class="flex">
             <router-link
                     :to="page.code"
-                    v-if="page.code  "
-                    class="lg:mx-4 ml-4 lg:ml-0"
-                     
+                    v-if="page.code"
                   >
                     {{ page.label }}
-                  </router-link>
+            </router-link>
             <span v-if="page.label === pages.label">
               <arrow-right-hero></arrow-right-hero>
             </span>
