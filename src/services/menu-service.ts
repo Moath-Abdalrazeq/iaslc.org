@@ -25,73 +25,53 @@ export let data = [
     ],
   },
 
-
-
-
   {
     label: "forms",
     sub: [
       {
         label: "Personal Form",
-        code: "/personalForm",
+        code: "#",
         desc: [
           {
             text: "Add",
-            code: "/personalForm",
+            code: "/personal/Add",
           },
           {
             text: "Edit",
             code: "#",
-          },
-          {
-            text: "view",
-            code: "/viewForm",
           },
         ],
       },
       {
         label: "Family Form",
-        code: "/familyForm",
+        code: "/family",
         desc: [
           {
             text: "Add",
-            code: "/familyForm",
+            code: "/family/Add",
           },
           {
             text: "Edit",
-            code: "#",
-          },
-          {
-            text: "view",
             code: "#",
           },
         ],
       },
       {
         label: "Works Form",
-        code: "/worksForm",
+        code: "/work",
         desc: [
           {
             text: "Add",
-            code: "/worksForm",
+            code: "/works/Add",
           },
           {
             text: "Edit",
-            code: "#",
-          },
-          {
-            text: "view",
             code: "#",
           },
         ],
       },
     ],
   },
-
-
-
-
-
 
   {
     label: "Research & Education",
@@ -202,7 +182,7 @@ export let data = [
   },
   {
     label: "IASLC News",
-    
+
     sub: [
       {
         label: "IASLC News",
@@ -240,7 +220,7 @@ export let data = [
   },
   {
     label: "Membership",
-   
+
     sub: [
       {
         label: "Membership",
@@ -266,7 +246,7 @@ export let data = [
   },
   {
     label: "Patient Advocacy",
-     
+
     sub: [
       {
         label: "Patient Advocacy",
@@ -304,7 +284,7 @@ export let data = [
   },
   {
     label: "Foundation",
-    
+
     sub: [
       {
         label: "Foundation",
@@ -330,7 +310,7 @@ export let data = [
   },
   {
     label: "About Us",
-   
+
     sub: [
       {
         label: "Board of Directors ",
