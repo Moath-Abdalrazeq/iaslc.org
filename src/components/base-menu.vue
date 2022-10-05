@@ -36,7 +36,7 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div class="fixed bg-white w-full z-30">
+  <div class="sticky bg-white w-full z-30">
     <div class="flex justify-around">
       <!--logo responsive -->
       <div>

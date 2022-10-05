@@ -1,10 +1,12 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import homePage from "../components/home-page.vue";
 import annualReport from "../components/annual-report.vue";
-import personalForm from '@/components/personal-form.vue'
+import personalFormAdd from '@/components/personal-form-add.vue'
 import familyForm from '@/components/family-form.vue'
 import worksForm from '@/components/works-form.vue'
-import viewForm from '@/components/view-form.vue'
+import personalFormView from '@/components/personal-form-view.vue'
+ import worksAdd from '@/components/works-add.vue'
+
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
@@ -17,9 +19,9 @@ const routes: Array<RouteRecordRaw> = [
     component: annualReport,
   },
   {
-    path: "/personalForm",
-    name: "personalForm",
-    component: personalForm,
+    path: "/personal/Add",
+    name: "personalFormAdd",
+    component: personalFormAdd,
   },
   {
     path: "/familyForm",
@@ -27,14 +29,20 @@ const routes: Array<RouteRecordRaw> = [
     component: familyForm,
   },
   {
-    path: "/worksForm",
+    path: "/works",
     name: "worksForm",
     component: worksForm,
   },
   {
-    path: "/viewForm",
-    name: "viewForm",
-    component: viewForm,
+    path: "/personal",
+    name: "personalFormView",
+    component: personalFormView,
+  },
+ 
+  {
+    path: "/works/Add",
+    name: "worksAdd",
+    component: worksAdd,
   },
 ];
 

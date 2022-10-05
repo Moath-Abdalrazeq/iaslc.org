@@ -33,19 +33,11 @@ export let data = [
     sub: [
       {
         label: "Personal Form",
-        code: "/personalForm",
+        code: "/personal",
         desc: [
           {
             text: "Add",
-            code: "/personalForm",
-          },
-          {
-            text: "Edit",
-            code: "#",
-          },
-          {
-            text: "view",
-            code: "/viewForm",
+            code: "/personal/Add",
           },
         ],
       },
@@ -57,31 +49,15 @@ export let data = [
             text: "Add",
             code: "/familyForm",
           },
-          {
-            text: "Edit",
-            code: "#",
-          },
-          {
-            text: "view",
-            code: "#",
-          },
         ],
       },
       {
         label: "Works Form",
-        code: "/worksForm",
+        code: "/works",
         desc: [
           {
             text: "Add",
-            code: "/worksForm",
-          },
-          {
-            text: "Edit",
-            code: "#",
-          },
-          {
-            text: "view",
-            code: "#",
+            code: "/works/Add",
           },
         ],
       },

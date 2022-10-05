@@ -8,12 +8,15 @@ export  type formType ={
      country :string ,
      Zipcode :number
 }
-const FormSevice={
+let FormSevice={
     setForm( form:formType ){
         forms.push(form)
     },
     getForm( ){
         return forms
+    },
+    editForm( index:number , form:formType ) {
+       forms[index]=form
     }
 }
  
