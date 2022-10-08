@@ -1,35 +1,120 @@
- 
-<template>
-    <section class="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
-  <form action="" class="container max-w-screen-lg  ">
-      <div class="bg-white rounded shadow-lg   px-4  p-8 mb-6">
-        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-          <div class="text-gray-600">
-            <p class="font-medium text-lg">Work Details</p>
-            <p>Please fill out all the fields.</p>
+<script lang="ts">
+  import { defineComponent, ref } from "vue";
+  import FormSevice, { formTypeWork } from "../services/forms-service";
+  import BaseNavigator from "./base-navigator.vue";
+  export default defineComponent({
+    setup() {
+       
+      const formSevice = FormSevice;
+      let name = ref("");
+      let email = ref("");
+      let experience = ref("");
+      let message = ref("");
+      let files= ref({});
+      let favouriteLanguage = ref('');
+      function addForm() {
+        if (name.value,experience.value,message.value,files.value,email.value,favouriteLanguage.value ) {
+
+        let typeformWork: formTypeWork = {
+          name: name.value,
+          email: email.value,
+          experience: experience.value,
+          message: message.value,
+          files: files.value,
+          favouriteLanguage: favouriteLanguage.value,
+        };
+        formSevice.setFormWork(typeformWork);
+      }
+    }
+    
+      function handleInput(e : InputEvent) : void{
+      files.value=URL.createObjectURL(e.target.files[0])
+     }
+      return {handleInput,name, email, experience, message,files,   favouriteLanguage, addForm  };
+    },
+    components: { BaseNavigator },
+  });
+  </script>
+  
+  <template>
+    <BaseNavigator></BaseNavigator>
+    <div class="md:w-96 md:max-w-full m-auto">
+      <div class="">
+        <form @submit.prevent>
+          <label class="mb-6">
+            <span class="text-gray-700 font-bold">Your name</span>
+            <input
+              required
+              v-model="name"
+              type="text"
+              class="block w-full mt-1 px-2 border-black border py-2 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+              placeholder="Joe Bloggs"
+            />
+          </label>
+          <label class="block mb-6">
+            <span class="text-gray-700 font-bold">Email address</span>
+            <input
+              required
+              v-model="email"
+              type="email"
+              class="block w-full mt-1 border-black border px-2 py-2 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+              placeholder="joe.bloggs@example.com"
+            />
+          </label>
+          <label class="block mb-6">
+            <span class="text-gray-700 font-bold">Years of experience</span>
+            <select
+              required
+              v-model="experience"
+              class="block w-full mt-1 border-black border py-2 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            >
+              <option>Less than a year</option>
+              <option>1 - 2 years</option>
+              <option>2 - 4 years</option>
+              <option>4 - 7 years</option>
+              <option>7 - 10 years</option>
+              <option>10+ years</option>
+            </select>
+          </label>
+          <label class="block mb-6">
+            <span class="text-gray-700 font-bold"
+              >Tell us more about yourself</span
+            >
+            <textarea
+            required
+              v-model="message"
+              class="block w-full mt-1 border-black border py-1 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+              rows="3"
+              placeholder="What motivates you?"
+            ></textarea>
+          </label>
+          <label class="block mb-6">
+            <span class="text-gray-700 font-bold">Your CV</span>
+          
+            <div>  
+              <input required  type="file"   @input="handleInput"   :v-model="files"
+              accept=".doc,.docx,.txt,.pdf "/>
+             </div>
+          
+          </label>
+          <div class="font-bold" >Please select your favorite language:</div>
+               <div class="flex">
+                 <input required type="radio" id="Android" name="favouriteLanguage" value="Android"     v-model="favouriteLanguage"/>
+                 <label class="  font-semibold py-2 px-4 cursor-pointer" for="Android">Android</label>
+                 <input required  type="radio" id="Web" value="Web"  name="favouriteLanguage" v-model="favouriteLanguage" />
+                 <label class="  font-semibold py-2 px-4 cursor-pointer" for="Web">Web</label>
+               </div>
+             
+          <div class="mb-6">
+            <button
+              type="submit"
+              class="h-10 px-5 text-indigo-100 bg-indigo-700 rounded-lg transition-colors duration-150 focus:shadow-outline hover:bg-indigo-800"
+              @click="addForm"
+            >
+              submit
+            </button>
           </div>
-          <div class="lg:col-span-2">
-            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1  ">
-              <div class="col-span-5">
-                <label for="full_name">Full Name</label>
-                <input type="text" name="full_name" id="full_name" class="h-10 border mt-1  px-4 w-full" value="" />
-              </div>
-              <div class="col-span-5">
-                <label for="address">Address / Street</label>
-                <input type="text" name="address" id="address" class="h-10 border mt-1  px-4 w-full " value="" placeholder="" />
-              </div>
-              <div class="col-span-2">
-                <label for="city">City</label>
-                <input type="text" name="city" id="city" class="h-10 border mt-1  px-4 w-full " value="" placeholder="" />
-              </div>
- 
-              <div class="col-span-5 text-end">
-                  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
-              </div>
-            </div>
-          </div>
-        </div>
+        </form>
       </div>
-  </form>
-</section>
-</template>
+    </div>
+  </template>

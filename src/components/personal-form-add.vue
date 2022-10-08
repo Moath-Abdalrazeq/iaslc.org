@@ -13,7 +13,8 @@
         let country=ref('')
         let Zipcode=ref()
         function addForm( ) {
-          let tempForm:formType={
+          if (fullName.value,gender.value,Zipcode.value) {
+            let tempForm:formType={
       fullName:fullName.value  ,
       gender:gender.value ,
       email:email.value,
@@ -23,8 +24,12 @@
        Zipcode:Zipcode.value
           }
           formSevice.setForm(tempForm)
+         
+          }
+           
         }
-          return { fullName,gender,email,address,city,Zipcode,country ,addForm };
+ 
+          return { fullName, email,address,city,Zipcode,country ,addForm , gender };
       },
       components: {  baseNavigator }
   
@@ -49,15 +54,15 @@
                 <div>
                   <div class="font-bold" >Gender</div>
                <div class="flex">
-                 <input type="radio" id="male"  required  v-model="gender"/>
+                 <input type="radio" id="male" name="gender" value="Male"     v-model="gender"/>
                  <label class="  font-semibold py-2 px-4 cursor-pointer" for="male">Male</label>
-                 <input type="radio" id="female"  v-model="gender" />
+                 <input type="radio" id="female" value="Female"  name="gender" v-model="gender" />
                  <label class="  font-semibold py-2 px-4 cursor-pointer" for="female">Female</label>
                </div>
               </div>
                 <div class=" col-span-5">
                   <label for="email">Email Address</label>
-                  <input type="text" required   id="email" class="h-10 border mt-1 px-4 w-full"   placeholder="email@domain.com" v-model="email" />
+                  <input type="email" required   id="email" class="h-10 border mt-1 px-4 w-full"   placeholder="email@domain.com" v-model="email" />
                 </div>
                 <div class="lg:col-span-3 col-span-5">
                   <label for="address">Address / Street</label>
@@ -79,7 +84,7 @@
                 </div>
                 <div class="col-span-5 text-right">
                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" 
-                    @click="addForm">Submit</button>
+                    @click="addForm"  >Submit</button>
                 </div>
               </div>
             </div>

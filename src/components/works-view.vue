@@ -1,14 +1,11 @@
 <script lang="ts">
-import { defineComponent, ref  } from "vue";
-import FormSevice, { formType }  from '../services/forms-service'
+    import { defineComponent, ref } from "vue";
+    import FormSevice, { formTypeWork } from "../services/forms-service";
+import WorksEdit from "./works-edit.vue";
 import BaseNavigator from "./base-navigator.vue";
- import PersonalModel from "./personal-model.vue";
-  export default defineComponent({
-    components: { BaseNavigator,  PersonalModel },
+    export default defineComponent({
     setup() {
-      
-      const formSevice=FormSevice
-      let forms=formSevice.getForm()
+        let forms=FormSevice.getFormWork()
       let currentIndex=ref(-1)
       let showPopup = ref(false);
     function closePopup( ) {
@@ -24,12 +21,14 @@ import BaseNavigator from "./base-navigator.vue";
  
  
         return { forms,closePopup,editClick ,showPopup, currentIndex};
+    
     },
-     
+    components: { WorksEdit, BaseNavigator }
 });
-  </script>
-<template>
-    <base-navigator></base-navigator> 
+    </script>
+    <template>
+     
+     <base-navigator></base-navigator> 
     <div class="flex flex-wrap justify-center  "> 
   <div v-for="(data,index) in forms" :key="index"  >
     <div class=" my-4 mx-4">
@@ -41,12 +40,13 @@ import BaseNavigator from "./base-navigator.vue";
       </div>
     </div>
     <div class="p-6">
-   <div class=" mb-2" >Name: {{data.fullName}} </div>
-  <div class="mb-2" >  Email: {{data.email}} </div>
-  <div class="mb-2" > Gender: {{data.gender}}</div>
-  <div class="mb-2" >Zipcode: {{data.Zipcode}}</div>
-  <div class="mb-2">City: {{data.city}}</div>
-  <div class="mb-2 ">address: {{data.address}}</div>
+   <div class=" mb-2">Name: {{data.name}} </div>
+  <div class="mb-2">  Email: {{data.email}} </div>
+  <div class="mb-2"> experience: {{data.experience}}</div>
+  <div class="mb-2">message: {{data.message}}</div>
+  
+  <div class="mb-2">CV:<a :href="data.files" class="text-blue-500"> <iframe  :src="data.files"  ></iframe>Your CV </a>  </div>
+  <div class="mb-2 ">Favourite Language: {{data.favouriteLanguage}}</div>
   </div>
   </div>
 </div>
@@ -56,5 +56,5 @@ import BaseNavigator from "./base-navigator.vue";
       
   </div> 
 </div>
-<personal-model @on-close-popup="closePopup"  v-if="showPopup"  :current-index="currentIndex"   ></personal-model>
-</template>
+      <works-edit @on-close-popup="closePopup" v-if="showPopup" :current-index="currentIndex"></works-edit>
+    </template>

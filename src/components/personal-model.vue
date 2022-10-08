@@ -25,6 +25,7 @@
             }
     
             function addForm( ) {
+              if (fullName.value,address.value,city.value,gender.value,email.value,country.value,Zipcode.value ) {
               let tempForm:formType={
           fullName:fullName.value  ,
           gender:gender.value ,
@@ -36,7 +37,10 @@
             
               }
               formService.editForm(props.currentIndex,tempForm)
+              closePopup(showPopup.value)
+              alert("Edit Success");
             }
+          }
               
              
         
@@ -62,44 +66,44 @@
                   <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-5">
                     <div class="col-span-5">
                       <label for="full_name">Full Name</label>
-                      <input type="text" required    class="h-10 border mt-1  px-4 w-full "   v-model="fullName" />
+                      <input type="text" required     class="h-10 border mt-1  px-4 w-full "   v-model="fullName" />
                     </div>
                     <div>
                       <div class="font-bold" >Gender</div>
                    <div class="flex">
-                     <input type="radio" id="male"    v-model="gender"/>
+                     <input required type="radio" id="male" value="Male" name="gender"  v-model="gender"/>
                      <label class="  font-semibold py-2 px-4 cursor-pointer" for="male">Male</label>
-                     <input type="radio" id="female"  v-model="gender" />
+                     <input required type="radio" id="female" value="Female" name="gender"   v-model="gender" />
                      <label class="  font-semibold py-2 px-4 cursor-pointer" for="female">Female</label>
                    </div>
                   </div>
                     <div class=" col-span-5">
                       <label for="email">Email Address</label>
-                      <input type="text" required   id="email" class="h-10 border mt-1 px-4 w-full"   placeholder="email@domain.com" v-model="email" />
+                      <input required type="email"     id="email" class="h-10 border mt-1 px-4 w-full"   placeholder="email@domain.com" v-model="email" />
                     </div>
                     <div class="lg:col-span-3 col-span-5">
                       <label for="address">Address / Street</label>
-                      <input  type="text" id="address" class="h-10 border mt-1  px-4 w-full"  v-model="address"   />
+                      <input required  type="text" id="address" class="h-10 border mt-1  px-4 w-full"  v-model="address"   />
                     </div>
                     <div class="lg:col-span-2 col-span-5">
                       <label for="city">City</label>
-                      <input type="text"   id="city" class="h-10 border mt-1 px-4 w-full" v-model="city" />
+                      <input required  type="text"   id="city" class="h-10 border mt-1 px-4 w-full" v-model="city" />
                     </div>
                     <div class="lg:col-span-2 col-span-5">
                       <label for="country">Country / region</label>
-                      <input id="country"  class="h-10 w-full flex border mt-1"  v-model="country"/>
+                      <input required id="country"  class="h-10 w-full flex border mt-1"  v-model="country"/>
                     </div>
                       </div>
                      
                     <div class="lg:col-span-1 col-span-5">
                       <label for="zipcode">Zipcode</label>
-                      <input type="number"  placeholder="30305" id="zipcode" class="h-10 border mt-1 px-4 w-full" required  v-model="Zipcode" />
+                      <input required  type="number"  placeholder="30305" id="zipcode" class="h-10 border mt-1 px-4 w-full"    v-model="Zipcode" />
                     </div>
                     <div class="col-span-5 text-right">
                        
                         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" 
                         @click="addForm">Submit</button>
-                        <span v-if="showSuccses">sucsess</span>
+                        
                     </div>
                   </div>
                 </div>

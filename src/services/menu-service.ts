@@ -43,11 +43,11 @@ export let data = [
       },
       {
         label: "Family Form",
-        code: "/familyForm",
+        code: "/family",
         desc: [
           {
             text: "Add",
-            code: "/familyForm",
+            code: "/family/Add",
           },
         ],
       },
