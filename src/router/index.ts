@@ -7,7 +7,7 @@ import worksView from '@/components/works-view.vue'
 import personalFormView from '@/components/personal-form-view.vue'
  import worksAdd from '@/components/works-add.vue'
  import familyFormView from '@/components/family-form-view.vue'
- 
+import viewForm from '@/components/view-form.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
@@ -49,6 +49,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/family",
     name: "familyFormView",
     component: familyFormView,
+  },
+  {
+    path: "/viewForm",
+    name: "viewForm",
+    component: viewForm,
   },
 ];
 
