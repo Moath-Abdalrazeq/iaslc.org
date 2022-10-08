@@ -1,0 +1,116 @@
+<script lang="ts">
+    import { defineComponent, ref  } from "vue";
+        import FormSevice, { formType }  from '../services/forms-service'
+        import basePopup from "./base-popup.vue";
+           export default defineComponent({
+            components: {   basePopup },
+            props: {currentIndex:{type:Number, required:true}},
+            emits:['onClosePopup'],
+            setup(props,{emit}) {
+                let showSuccses=ref(false)
+            const formService=FormSevice
+            let forms =ref(formService.getForm())
+            let form=forms.value[props.currentIndex]
+              let showPopup = ref(false);
+            let fullName =ref('')
+            let gender =ref('')
+            let email=ref('')
+            let address=ref('')
+            let city=ref('')
+            let country=ref('')
+            let Zipcode=ref(0)
+            function closePopup(close: boolean) {
+              showPopup.value = close;
+              emit('onClosePopup')
+            }
+    
+            function addForm( ) {
+              if (fullName.value,address.value,city.value,gender.value,email.value,country.value,Zipcode.value ) {
+              let tempForm:formType={
+          fullName:fullName.value  ,
+          gender:gender.value ,
+          email:email.value,
+           address:address.value,
+           city:city.value ,
+           country:country.value ,
+           Zipcode:Zipcode.value,
+            
+              }
+              formService.editForm(props.currentIndex,tempForm)
+              closePopup(showPopup.value)
+              alert("Edit Success");
+            }
+          }
+              
+             
+        
+         
+                return {fullName,gender,email,address,city,country,Zipcode, showPopup,closePopup,addForm,showSuccses };
+            },
+            
+        });
+          </script>
+    
+    
+    <template>
+            <base-popup   @on-close-popup="closePopup">
+            <template #content>   
+          <form action="" @submit.prevent class="container max-w-screen-lg m-auto">
+            <div class="bg-white rounded shadow-lg p-8 px-4 mb-6 " >
+              <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
+                <div class="text-gray-600">
+                  <p class="font-medium text-lg">Personal Details</p>
+                  <p>Please fill out all the fields.</p>
+                </div>
+                <div class="lg:col-span-2">
+                  <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-5">
+                    <div class="col-span-5">
+                      <label for="full_name">Full Name</label>
+                      <input type="text" required     class="h-10 border mt-1  px-4 w-full "   v-model="fullName" />
+                    </div>
+                    <div>
+                      <div class="font-bold" >Gender</div>
+                   <div class="flex">
+                     <input required type="radio" id="male" value="Male" name="gender"  v-model="gender"/>
+                     <label class="  font-semibold py-2 px-4 cursor-pointer" for="male">Male</label>
+                     <input required type="radio" id="female" value="Female" name="gender"   v-model="gender" />
+                     <label class="  font-semibold py-2 px-4 cursor-pointer" for="female">Female</label>
+                   </div>
+                  </div>
+                    <div class=" col-span-5">
+                      <label for="email">Email Address</label>
+                      <input required type="email"     id="email" class="h-10 border mt-1 px-4 w-full"   placeholder="email@domain.com" v-model="email" />
+                    </div>
+                    <div class="lg:col-span-3 col-span-5">
+                      <label for="address">Address / Street</label>
+                      <input required  type="text" id="address" class="h-10 border mt-1  px-4 w-full"  v-model="address"   />
+                    </div>
+                    <div class="lg:col-span-2 col-span-5">
+                      <label for="city">City</label>
+                      <input required  type="text"   id="city" class="h-10 border mt-1 px-4 w-full" v-model="city" />
+                    </div>
+                    <div class="lg:col-span-2 col-span-5">
+                      <label for="country">Country / region</label>
+                      <input required id="country"  class="h-10 w-full flex border mt-1"  v-model="country"/>
+                    </div>
+                      </div>
+                     
+                    <div class="lg:col-span-1 col-span-5">
+                      <label for="zipcode">Zipcode</label>
+                      <input required  type="number"  placeholder="30305" id="zipcode" class="h-10 border mt-1 px-4 w-full"    v-model="Zipcode" />
+                    </div>
+                    <div class="col-span-5 text-right">
+                       
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" 
+                        @click="addForm">Submit</button>
+                        
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </form>
+      </template>
+            </base-popup>
+         
+    </template>
+    

@@ -1,9 +1,12 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import homePage from "../components/home-page.vue";
 import annualReport from "../components/annual-report.vue";
-import personalForm from '@/components/personal-form.vue'
-import familyForm from '@/components/family-form.vue'
-import worksForm from '@/components/works-form.vue'
+import personalFormAdd from '@/components/personal-form-add.vue'
+import familyFormAdd from '@/components/family-form-add.vue'
+import worksView from '@/components/works-view.vue'
+import personalFormView from '@/components/personal-form-view.vue'
+ import worksAdd from '@/components/works-add.vue'
+ import familyFormView from '@/components/family-form-view.vue'
 import viewForm from '@/components/view-form.vue'
 const routes: Array<RouteRecordRaw> = [
   {
@@ -17,19 +20,35 @@ const routes: Array<RouteRecordRaw> = [
     component: annualReport,
   },
   {
-    path: "/personalForm",
-    name: "personalForm",
-    component: personalForm,
+    path: "/personal/Add",
+    name: "personalFormAdd",
+    component: personalFormAdd,
   },
   {
-    path: "/familyForm",
-    name: "familyForm",
-    component: familyForm,
+    path: "/family/Add",
+    name: "familyFormAdd",
+    component: familyFormAdd,
   },
   {
-    path: "/worksForm",
-    name: "worksForm",
-    component: worksForm,
+    path: "/works",
+    name: "worksView",
+    component: worksView,
+  },
+  {
+    path: "/personal",
+    name: "personalFormView",
+    component: personalFormView,
+  },
+ 
+  {
+    path: "/works/Add",
+    name: "worksAdd",
+    component: worksAdd,
+  },
+  {
+    path: "/family",
+    name: "familyFormView",
+    component: familyFormView,
   },
   {
     path: "/viewForm",

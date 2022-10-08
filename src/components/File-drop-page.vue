@@ -10,12 +10,14 @@
 <script lang="ts">
     import { defineComponent, ref  } from "vue";
      export default defineComponent({
+
       components: {
        
       },
+      
       setup() {
-        let files =ref({})
-        let filesDispaly=ref(false)
+    let files =ref({})
+     let filesDispaly=ref(false)
      function handleInput(e : InputEvent) : void{
       files.value=URL.createObjectURL(e.target.files[0])
       filesDispaly.value=true
