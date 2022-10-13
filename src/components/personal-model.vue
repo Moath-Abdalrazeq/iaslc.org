@@ -1,17 +1,16 @@
 <script lang="ts">
-    import { defineComponent, ref  } from "vue";
+    import { defineComponent,  ref  } from "vue";
         import FormSevice, { formType }  from '../services/forms-service'
         import basePopup from "./base-popup.vue";
-           export default defineComponent({
-            components: {   basePopup },
-            props: {currentIndex:{type:Number, required:true}},
-            emits:['onClosePopup'],
+            export default defineComponent({
+            components: { basePopup  },
+            props: {currentIndex:{type:Number, required:true},
+             },
+            emits:['onClosePopup','onFormEdit'],
             setup(props,{emit}) {
-                let showSuccses=ref(false)
             const formService=FormSevice
             let forms =ref(formService.getForm())
-            let form=forms.value[props.currentIndex]
-              let showPopup = ref(false);
+            let form=forms.value[props.currentIndex]    
             let fullName =ref('')
             let gender =ref('')
             let email=ref('')
@@ -19,41 +18,37 @@
             let city=ref('')
             let country=ref('')
             let Zipcode=ref(0)
-            function closePopup(close: boolean) {
-              showPopup.value = close;
+            let popupText=ref('')
+
+            function closePopup( ) {
               emit('onClosePopup')
             }
-    
-            function addForm( ) {
-              if (fullName.value,address.value,city.value,gender.value,email.value,country.value,Zipcode.value ) {
-              let tempForm:formType={
-          fullName:fullName.value  ,
-          gender:gender.value ,
-          email:email.value,
-           address:address.value,
-           city:city.value ,
-           country:country.value ,
-           Zipcode:Zipcode.value,
-            
+
+            function addForm() {
+            if (fullName.value,address.value,city.value,gender.value,email.value,country.value,Zipcode.value ) {
+            popupText.value='Success'
+            let tempForm:formType={
+            fullName:fullName.value  ,
+            gender:gender.value ,
+            email:email.value,
+            address:address.value,
+            city:city.value ,
+            country:country.value ,
+            Zipcode:Zipcode.value,
               }
               formService.editForm(props.currentIndex,tempForm)
-              closePopup(showPopup.value)
-              alert("Edit Success");
+             }else{
+            popupText.value='Fail'
             }
+            emit('onClosePopup')
+            emit('onFormEdit',popupText.value)
           }
-              
-             
-        
-         
-                return {fullName,gender,email,address,city,country,Zipcode, showPopup,closePopup,addForm,showSuccses };
+                return {fullName,gender,email,address,city,country,Zipcode, closePopup,addForm };
             },
-            
         });
           </script>
-    
-    
     <template>
-            <base-popup   @on-close-popup="closePopup">
+      <base-popup   @on-close-popup="closePopup"   >
             <template #content>   
           <form action="" @submit.prevent class="container max-w-screen-lg m-auto">
             <div class="bg-white rounded shadow-lg p-8 px-4 mb-6 " >
@@ -94,23 +89,18 @@
                       <input required id="country"  class="h-10 w-full flex border mt-1"  v-model="country"/>
                     </div>
                       </div>
-                     
                     <div class="lg:col-span-1 col-span-5">
                       <label for="zipcode">Zipcode</label>
                       <input required  type="number"  placeholder="30305" id="zipcode" class="h-10 border mt-1 px-4 w-full"    v-model="Zipcode" />
                     </div>
                     <div class="col-span-5 text-right">
-                       
                         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" 
-                        @click="addForm">Submit</button>
-                        
+                        @click="addForm" >Submit</button>
                     </div>
                   </div>
                 </div>
               </div>
           </form>
       </template>
-            </base-popup>
-         
-    </template>
-    
+    </base-popup>
+ </template>

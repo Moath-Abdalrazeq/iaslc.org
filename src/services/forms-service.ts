@@ -47,8 +47,9 @@ const FormSevice = {
   getFormWork() {
     return formWork;
   },
-  editForm( index:number , form:formType ) {
+  editForm( index:number , form:formType  ) {
     forms[index]=form
+  
  },
  editFormFamily( index:number , form:formTypeFamily ) {
     formFamily[index]=form
