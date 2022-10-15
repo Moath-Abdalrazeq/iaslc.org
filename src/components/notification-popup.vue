@@ -1,5 +1,5 @@
 <script lang="ts">
- import { defineComponent, onMounted, ref, watch  } from "vue";
+ import { defineComponent } from "vue";
  import BaseNotification from "./base-notification.vue";
            export default defineComponent({
             components: {   BaseNotification },
@@ -9,28 +9,20 @@
                   },
              emits:['onCloseNotification'],
             setup(props,{emit}) {
-              let currentIndex=ref(props.index)
-            let showPopup = ref(props.showNotification);
-            function closeNotification(close: boolean) {
-              showPopup.value = false;
-              emit('onCloseNotification',currentIndex.value)
+             function closeNotification(){
+              emit('onCloseNotification',props.index)
             }
-            function init( ) {
-              setTimeout(closeNotification ,5000)
-            }
-            onMounted(init)
-            watch(()=>props.index,()=>currentIndex.value=props.index)
-                   return {  closeNotification,showPopup  };
+            
+              return {  closeNotification  };
             },
 
             
         });
           </script>
-
 <template>
       <base-notification  @on-close-popup="closeNotification"  >
           <template #content  > 
-    <p class="ml-3 text-sm font-bold ">Edit {{popupText}} !</p>
+    <p class="ml-3 text-sm font-bold " :class="{'text-green-500 ':popupText==='Success', '   text-red-500':popupText==='Fail'}">Edit {{popupText}} !</p>
           </template>
          </base-notification>
 </template>

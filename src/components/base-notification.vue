@@ -1,5 +1,5 @@
 <template>
-          <div class="  p-4   border rounded-md shadow-sm shadow-green-600 bg-white w-72   flex  justify-between">
+          <div class="  p-4   border rounded-md   bg-white w-72   flex  justify-between">
             <slot name="content"></slot>
             <button
               @click="closePopup"

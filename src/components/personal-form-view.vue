@@ -23,13 +23,11 @@ import NotificationPopup from "./notification-popup.vue";
     function formEdit(text:string ) {
       showNotification.value=true
       listItems.value.push(text) 
+      setTimeout(()=>listItems.value.splice( listItems.value.length-1 ,1) ,5000)
+
     }
     function closeNotification(index:number) {
-      console.log('index',index)
-      console.log('list',listItems.value.splice(index ,1))
-      console.log('listItems',listItems.value )
-
-      
+      listItems.value.splice(index ,1) 
     }
         return { forms,closePopup,editClick ,showPopup, showNotification,currentIndex,formEdit,  listItems,closeNotification};
     },
@@ -65,7 +63,7 @@ import NotificationPopup from "./notification-popup.vue";
 <personal-model @on-close-popup="closePopup"  @on-form-edit="formEdit"  v-if="showPopup"  :current-index="currentIndex"></personal-model>
 <div class="absolute bottom-3 right-4"  > 
 <div v-for="(item,index) in listItems " :key="index" class="my-2" > 
- <notification-popup    @on-close-notification="closeNotification" :popup-text="item" :index="index"  :show-notification="showNotification"> </notification-popup>
+ <notification-popup    @on-close-notification="closeNotification" :popup-text="item" :index="index"  > </notification-popup>
 </div>
 </div>
 </template>

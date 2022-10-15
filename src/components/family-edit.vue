@@ -5,22 +5,22 @@
            export default defineComponent({
             components: {   basePopup },
             props: {currentIndex:{type:Number, required:true}},
-            emits:['onClosePopup'],
-            setup(props,{emit}) {
-  let showPopup=ref(false)
-    const formSevice = FormSevice;
-      let fullName = ref("");
-      let NOFamily = ref(0);
-      let NOMale = ref(0);
-      let NOFemale = ref(0);
-      let address = ref("");
-      let city = ref("");
-      function closePopup(close: boolean) {
-              showPopup.value = close;
-              emit('onClosePopup')
+            emits:['onClosePopup','onFormEdit'],
+  setup(props,{emit}) {
+     const formSevice = FormSevice;
+      let fullName=ref("");
+      let NOFamily=ref(0);
+      let NOMale=ref(0);
+      let NOFemale=ref(0);
+      let address=ref("");
+      let popupText=ref('')
+      let city=ref("");
+      function closePopup( ) {
+       emit('onClosePopup')
             }
       function addForm() {
         if (fullName.value,NOFamily.value,NOMale.value,NOFemale.value,address.value,city.value ) {
+          popupText.value='Success'
           let tempFormFamily: formTypeFamily = {
           fullName: fullName.value,
           address: address.value,
@@ -30,13 +30,16 @@
           NOFemale: NOFemale.value,
         };
         formSevice.editFormFamily(props.currentIndex,tempFormFamily);
-        closePopup(showPopup.value)
-        alert("Edit Success");
-        }
+       
+        }else{
+            popupText.value='Fail'
+            }
+            emit('onClosePopup')
+            emit('onFormEdit',popupText.value)
          
       }
            
-                return {fullName,NOFamily,NOMale,address,city,NOFemale,showPopup,closePopup,addForm  };
+                return {fullName,NOFamily,NOMale,address,city,NOFemale,closePopup,addForm  };
             },
             
         });
