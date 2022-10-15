@@ -3,11 +3,14 @@
     import FormSevice, { formTypeWork } from "../services/forms-service";
 import WorksEdit from "./works-edit.vue";
 import BaseNavigator from "./base-navigator.vue";
+import NotificationPopup from '@/components/notification-popup.vue' 
     export default defineComponent({
     setup() {
         let forms=FormSevice.getFormWork()
       let currentIndex=ref(-1)
       let showPopup = ref(false);
+      let showNotification=ref(false)
+      let listItems=ref<string[]>([])
     function closePopup( ) {
       showPopup.value = false;
     }
@@ -15,15 +18,25 @@ import BaseNavigator from "./base-navigator.vue";
     function editClick( index:number) {
       showPopup.value = !showPopup.value;
       currentIndex.value=index
+      
+    }
+    function formEdit(text:string ) {
+      showNotification.value=true
+      listItems.value.push(text) 
+      setTimeout(()=>listItems.value.splice( listItems.value.length-1 ,1) ,5000)
+
+    }
+    function closeNotification(index:number) {
+      listItems.value.splice(index ,1) 
     }
       
       
  
  
-        return { forms,closePopup,editClick ,showPopup, currentIndex};
+        return { forms,closePopup,editClick ,showPopup, currentIndex,closeNotification,formEdit,listItems};
     
     },
-    components: { WorksEdit, BaseNavigator }
+    components: { WorksEdit, BaseNavigator,NotificationPopup }
 });
     </script>
     <template>
@@ -56,5 +69,10 @@ import BaseNavigator from "./base-navigator.vue";
       
   </div> 
 </div>
-      <works-edit @on-close-popup="closePopup" v-if="showPopup" :current-index="currentIndex"></works-edit>
+      <works-edit @on-close-popup="closePopup"  @on-form-edit="formEdit"  v-if="showPopup"  :current-index="currentIndex"></works-edit>
+      <div class="absolute bottom-3 right-4"  > 
+      <div v-for="(item,index) in listItems " :key="index" class="my-2" > 
+      <notification-popup @on-close-notification="closeNotification" :popup-text="item" :index="index" ></notification-popup>
+      </div>
+      </div>
     </template>

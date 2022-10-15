@@ -3,12 +3,14 @@
     import FormSevice, { formTypeFamily } from "../services/forms-service";
 import FamilyEdit from "./family-edit.vue";
 import BaseNavigator from "./base-navigator.vue";
+import NotificationPopup from "./notification-popup.vue";
     export default defineComponent({
       setup() {
-       let forms=FormSevice.getFormFamily()
+      let forms=FormSevice.getFormFamily()
       let currentIndex=ref(-1)
       let showPopup = ref(false);
-    function closePopup( ) {
+      let listItems=ref<string[]>([])
+      function closePopup( ) {
       showPopup.value = false;
     }
     
@@ -16,18 +18,21 @@ import BaseNavigator from "./base-navigator.vue";
       showPopup.value = !showPopup.value;
       currentIndex.value=index
     }
-      
-      
- 
- 
-        return { forms,closePopup,editClick ,showPopup, currentIndex};
+    function formEdit(text:string ) {
+      listItems.value.push(text) 
+      setTimeout(()=>listItems.value.splice( listItems.value.length-1 ,1) ,5000)
+
+    }
+    function closeNotification(index:number) {
+      listItems.value.splice(index ,1) 
+    }
+        return { forms,closePopup,editClick ,showPopup,closeNotification,formEdit, currentIndex,listItems};
     
       },
-      components: { FamilyEdit, BaseNavigator },
+      components: { FamilyEdit, BaseNavigator, NotificationPopup },
     });
     </script>
-    
-    <template>
+<template>
 <base-navigator></base-navigator>
 <div class="flex flex-wrap justify-center  "> 
   <div v-for="(data,index) in forms" :key="index"  >
@@ -53,5 +58,10 @@ import BaseNavigator from "./base-navigator.vue";
 </div>     
   </div> 
 </div>
-      <family-edit @on-close-popup="closePopup" v-if="showPopup" :current-index="currentIndex" ></family-edit>
-    </template>
+      <family-edit @on-close-popup="closePopup"  @on-form-edit="formEdit"  v-if="showPopup"  :current-index="currentIndex" ></family-edit>
+      <div class="absolute bottom-3 right-4"  > 
+      <div v-for="(item,index) in listItems " :key="index" class="my-2" > 
+      <notification-popup @on-close-notification="closeNotification" :popup-text="item" :index="index" ></notification-popup>
+      </div>
+      </div>
+</template>

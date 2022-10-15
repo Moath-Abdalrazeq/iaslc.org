@@ -21,7 +21,8 @@
    <tabs-viwe></tabs-viwe> 
    <file-drop-page></file-drop-page>
   <download-files></download-files>
-  <footer-page></footer-page>
+ 
+   <footer-page></footer-page>
  </template>
 <script lang="ts">
 import { defineComponent, ref } from "vue";
@@ -44,7 +45,8 @@ import setTimeoutPicture from "./settimeout-picture.vue";
 import tabsViwe from "./tabs-viwe.vue";
  import downloadFiles from "./download-files.vue";
 import fileDropPage from "./File-drop-page.vue";
-export default defineComponent({
+  
+ export default defineComponent({
   components: {
     cardsDropdown,
     meetingsCard,
@@ -65,9 +67,11 @@ export default defineComponent({
     tabsViwe,
     downloadFiles,
     fileDropPage,
+     
 },
   setup() { 
     return {};
   },
 });
 </script>
+ 

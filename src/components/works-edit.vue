@@ -5,23 +5,23 @@
          export default defineComponent({
           components: {   basePopup },
           props: {currentIndex:{type:Number, required:true}},
-          emits:['onClosePopup'],
+          emits:['onClosePopup','onFormEdit'],
           setup(props,{emit}) {
-      let showPopup=ref(false)
-      const formSevice = FormSevice;
+       const formSevice = FormSevice;
       let name = ref("");
       let email = ref("");
       let experience = ref("");
       let message = ref("");
       let files = ref({});
       let favouriteLanguage = ref("");
-      function closePopup(close: boolean) {
-            showPopup.value = close;
+      let popupText=ref('')
+
+      function closePopup( ) {
             emit('onClosePopup')
           }
       function addForm() {
         if (name.value,experience.value,message.value,files.value,email.value,favouriteLanguage.value ) {
-
+          popupText.value='Success'
         let typeformWork: formTypeWork = {
           name: name.value,
           email: email.value,
@@ -31,15 +31,17 @@
           favouriteLanguage: favouriteLanguage.value,
         };
         formSevice.editFormWork(props.currentIndex,typeformWork);
-        closePopup(showPopup.value)
-        alert("Edit Success");
-      }
+      }else{
+            popupText.value='Fail'
+            }
+            emit('onClosePopup')
+            emit('onFormEdit',popupText.value)
     }
       
       function handleInput(e : InputEvent) : void{
       files.value=URL.createObjectURL(e.target.files[0])
        }
-      return { name, email,handleInput, experience, message,files, favouriteLanguage, addForm,closePopup,addForm };
+      return { name, email,handleInput, experience, message,files, favouriteLanguage, addForm,closePopup  };
     },
           
       });
